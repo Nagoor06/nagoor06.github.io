@@ -450,8 +450,8 @@ h1,h2,h3,h4{font-weight:750}
 
 
 
-/* Match social link text to the “Let’s build something” heading color. */
-.contact-social a,.contact-social a span,.contact-social a b{color:#d4f49a!important}
-.contact-social a:hover,.contact-social a:hover span,.contact-social a:hover b{color:#d4f49a!important}
+/* Keep social link font black while preserving each brand logo. */
+.contact-social a,.contact-social a span,.contact-social a b{color:#000!important}
+.contact-social a:hover,.contact-social a:hover span,.contact-social a:hover b{color:#000!important}
 .contact-social .brand-logo{opacity:1!important;visibility:visible!important;filter:none!important}
 .contact-social a:hover .brand-logo{filter:none!important}
