@@ -447,3 +447,6 @@ h1,h2,h3,h4{font-weight:750}
 .contact-arrow{cursor:pointer}
 @media(max-width:800px){.contact-social a{font-size:14px;padding:11px 13px;gap:8px;min-height:44px}.contact-social .brand-logo{width:20px;height:20px;min-width:20px;flex-basis:20px}.contact-social .brand-leetcode{width:21px;height:21px;min-width:21px;flex-basis:21px}}
 @media(max-width:560px){.contact-social{gap:9px}.contact-social a{font-size:13px;padding:10px 11px;gap:7px;min-height:40px}.contact-social .brand-logo{width:18px;height:18px;min-width:18px;flex-basis:18px}.contact-social .brand-leetcode{width:19px;height:19px;min-width:19px;flex-basis:19px}}
+
+/* Set all portfolio text to olive, without changing layout or backgrounds. */
+body,body *{color:#808000!important}
