@@ -41,3 +41,85 @@ body{font-size:16px}
 .additional-projects{padding:22px}
 .additional-projects p{font-size:15px}
 }
+
+/* v1.1 refinement: readable microcopy, stronger contrast, and profile/avatar styling. */
+:root{--muted:#bdc8bd;--line:#39463c;--lime:#d9f99d;--panel:#18211b}
+.profile-lockup{display:flex;align-items:center;gap:16px;margin:0 0 22px}
+.profile-avatar{display:block;width:68px;height:68px;object-fit:cover;object-position:center;border-radius:50%;border:2px solid var(--lime);box-shadow:0 0 0 5px rgba(217,249,157,.10)}
+.profile-lockup .eyebrow{margin:0 0 5px;font-size:13px;letter-spacing:1.8px}
+.profile-specialty{margin:0;color:var(--muted);font-size:12px;font-weight:700;letter-spacing:1.1px;line-height:1.6}
+.orb-core>span{text-transform:uppercase;font-size:clamp(38px,4vw,58px);font-weight:800;letter-spacing:-2px}
+.visual-footnote-row{display:flex;align-items:center;gap:14px;margin-top:14px}
+.visual-footnote-row .visual-footnote{margin:0;font-size:13px;line-height:1.6;color:#c5d0c5}
+.techie-avatars{display:flex;align-items:center;padding-left:3px;flex-shrink:0}
+.techie-avatar{display:grid;place-items:center;width:36px;height:36px;margin-left:-4px;border:2px solid var(--bg);border-radius:50%;font-size:11px;font-weight:800;letter-spacing:-.5px;box-shadow:0 3px 12px rgba(0,0,0,.25)}
+.avatar-python{background:#d7e8a8;color:#24351c}
+.avatar-ai{background:#a6d9cc;color:#17332c;font-size:17px}
+.avatar-backend{background:#c5b6fa;color:#29203f;font-size:10px}
+.project-date,.editor-titlebar,.visual-footnote,.sample-notice,.concept-caption,.model-caption,.phone-concept,.site-footer,.workflow-caption,.floating-source small,.pickup-label small{font-size:12px!important;line-height:1.65;letter-spacing:.2px}
+.project-foot{font-size:13px;line-height:1.7}
+.editor-titlebar,.editor-toolbar{padding-block:12px}
+.sample-notice{padding-block:12px}
+.workflow-caption{font-size:14px!important}
+.model-caption{font-size:13px!important}
+.site-footer{font-size:12px!important}
+.contact-top>span,.hero-bottom,.hero-bottom>a{font-size:12px}
+.publication-top,.publication-bottom{font-size:12px}
+.timeline-date,.project-topline,.project-status,.eyebrow{line-height:1.6}
+.tech-tags span{font-size:11px}
+.repo-link{font-size:12px}
+.output-label{font-size:11px}
+.floating-source small{font-size:11px!important}
+.pickup-label{font-size:13px}
+.pickup-label small{font-size:11px!important}
+:focus-visible{outline-color:#e4ffb4}
+@media(min-width:801px){
+.project-date,.editor-titlebar,.visual-footnote,.sample-notice,.concept-caption,.model-caption,.phone-concept,.site-footer,.workflow-caption,.floating-source small,.pickup-label small{font-size:12px!important}
+}
+@media(max-width:800px){
+.profile-avatar{width:58px;height:58px}
+.profile-lockup{gap:12px;margin-bottom:18px}
+.profile-lockup .eyebrow{font-size:11px}
+.profile-specialty{font-size:10px;letter-spacing:.5px}
+.visual-footnote-row{align-items:flex-start;gap:10px}
+.techie-avatar{width:31px;height:31px;font-size:10px}
+.visual-footnote-row .visual-footnote{font-size:12px}
+.project-date,.editor-titlebar,.visual-footnote,.sample-notice,.concept-caption,.model-caption,.phone-concept,.site-footer,.workflow-caption,.floating-source small,.pickup-label small{font-size:11px!important}
+}
+@media(max-width:560px){
+.profile-avatar{width:52px;height:52px}
+.profile-lockup .eyebrow{font-size:10px;letter-spacing:1px}
+.profile-specialty{font-size:9px;letter-spacing:.25px}
+.visual-footnote-row .visual-footnote{font-size:11px}
+.project-date,.editor-titlebar,.visual-footnote,.sample-notice,.concept-caption,.model-caption,.phone-concept,.site-footer,.workflow-caption,.floating-source small,.pickup-label small{font-size:10px!important}
+.project-foot{font-size:10px}
+}
+
+/* v1.1 follow-up: make the previously tiny labels readable at every viewport. */
+.project-foot .project-date{font-size:14px!important;line-height:1.6;letter-spacing:.5px}
+.editor-titlebar{font-size:13px!important;line-height:1.5;min-height:42px;height:auto;padding-block:12px}
+.editor-titlebar .editor-status{font-size:11px!important}
+.visual-footnote-row .visual-footnote{font-size:14px!important;line-height:1.65;color:#d1dbd0}
+.site-footer{font-size:12px!important;line-height:1.7}
+.site-footer>span:nth-child(2){display:inline!important}
+.orb-core small{font-size:10px;letter-spacing:2px;color:#d0ddc8}
+@media(max-width:800px){
+  .project-foot .project-date{font-size:13px!important}
+  .editor-titlebar{font-size:12px!important;gap:8px;padding-inline:10px}
+  .editor-titlebar .editor-status{font-size:10px!important}
+  .visual-footnote-row .visual-footnote{font-size:13px!important}
+  .site-footer{font-size:11px!important}
+  .site-footer>span:nth-child(2){display:block!important}
+}
+@media(max-width:560px){
+  .project-foot .project-date{font-size:12px!important;letter-spacing:.25px}
+  .editor-titlebar{font-size:11px!important;gap:6px;padding-inline:8px;flex-wrap:wrap;min-height:42px}
+  .editor-titlebar .editor-status{font-size:9px!important}
+  .visual-footnote-row{align-items:center;gap:9px}
+  .visual-footnote-row .visual-footnote{font-size:12px!important;line-height:1.55;text-align:left}
+  .techie-avatar{width:30px;height:30px}
+  .site-footer{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:11px!important}
+  .site-footer>span:nth-child(2){display:block!important;flex-basis:100%;order:3}
+  .site-footer>a{margin-left:auto}
+  .orb-core small{font-size:9px;letter-spacing:1.6px}
+}
