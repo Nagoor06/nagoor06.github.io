@@ -82,6 +82,14 @@
     document.querySelector('#map-label-detail').textContent = privacy ? 'Public meeting points · design exploration' : 'A shared route. A nearby pickup.';
   }));
 
+  // Keep the native mail app flow on mobile; open Gmail compose on desktop browsers.
+  const commuteContactLink = document.querySelector('.commute-contact-link');
+  if (commuteContactLink && window.matchMedia('(max-width: 560px)').matches) {
+    commuteContactLink.href = commuteContactLink.dataset.mobileMailto;
+    commuteContactLink.removeAttribute('target');
+    commuteContactLink.removeAttribute('rel');
+  }
+
   let dialogTrigger = null;
   document.querySelectorAll('[data-open]').forEach(button => button.addEventListener('click', () => {
     const dialog = document.getElementById(button.dataset.open);
