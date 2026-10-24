@@ -94,3 +94,32 @@ body{font-size:16px}
 .project-date,.editor-titlebar,.visual-footnote,.sample-notice,.concept-caption,.model-caption,.phone-concept,.site-footer,.workflow-caption,.floating-source small,.pickup-label small{font-size:10px!important}
 .project-foot{font-size:10px}
 }
+
+/* v1.1 follow-up: make the previously tiny labels readable at every viewport. */
+.project-foot .project-date{font-size:14px!important;line-height:1.6;letter-spacing:.5px}
+.editor-titlebar{font-size:13px!important;line-height:1.5;min-height:42px;height:auto;padding-block:12px}
+.editor-titlebar .editor-status{font-size:11px!important}
+.visual-footnote-row .visual-footnote{font-size:14px!important;line-height:1.65;color:#d1dbd0}
+.site-footer{font-size:12px!important;line-height:1.7}
+.site-footer>span:nth-child(2){display:inline!important}
+.orb-core small{font-size:10px;letter-spacing:2px;color:#d0ddc8}
+@media(max-width:800px){
+  .project-foot .project-date{font-size:13px!important}
+  .editor-titlebar{font-size:12px!important;gap:8px;padding-inline:10px}
+  .editor-titlebar .editor-status{font-size:10px!important}
+  .visual-footnote-row .visual-footnote{font-size:13px!important}
+  .site-footer{font-size:11px!important}
+  .site-footer>span:nth-child(2){display:block!important}
+}
+@media(max-width:560px){
+  .project-foot .project-date{font-size:12px!important;letter-spacing:.25px}
+  .editor-titlebar{font-size:11px!important;gap:6px;padding-inline:8px;flex-wrap:wrap;min-height:42px}
+  .editor-titlebar .editor-status{font-size:9px!important}
+  .visual-footnote-row{align-items:center;gap:9px}
+  .visual-footnote-row .visual-footnote{font-size:12px!important;line-height:1.55;text-align:left}
+  .techie-avatar{width:30px;height:30px}
+  .site-footer{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:11px!important}
+  .site-footer>span:nth-child(2){display:block!important;flex-basis:100%;order:3}
+  .site-footer>a{margin-left:auto}
+  .orb-core small{font-size:9px;letter-spacing:1.6px}
+}
