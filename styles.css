@@ -123,3 +123,60 @@ body{font-size:16px}
   .site-footer>a{margin-left:auto}
   .orb-core small{font-size:9px;letter-spacing:1.6px}
 }
+
+/* Portfolio motion pass inspired by Uber Careers: purposeful lift, depth and responsive micro-interactions. */
+.profile-avatar-placeholder{display:grid;place-items:center;background:radial-gradient(circle at 30% 25%,#435b38,#17221a 72%);color:var(--lime);font:600 23px var(--serif);letter-spacing:-1px}
+.techie-avatars{gap:0}
+.techie-avatar{display:block;object-fit:cover;overflow:hidden;padding:0;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s;transform-origin:center bottom}
+.avatar-python,.avatar-ai,.avatar-backend{background:var(--panel)}
+@media(hover:hover) and (pointer:fine){
+  .project{transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s,border-color .35s;transform:translateY(0);will-change:transform}
+  .project:hover{transform:translateY(-7px);border-color:#9ebd7a;box-shadow:0 24px 65px #0005,0 0 0 1px #d9f99d10}
+  .project-logic:hover .logic-showcase{background:radial-gradient(ellipse at 55% 38%,#456b318c,transparent 72%)}
+  .project-commute:hover .commute-showcase{filter:saturate(1.08)}
+  .project:hover .project-status i{box-shadow:0 0 0 5px #b1d98216}
+  .project:hover .tech-tags span{border-color:#819b67;color:#e1edcf}
+  .project .tech-tags span{transition:border-color .3s,color .3s,transform .3s}
+  .project .tech-tags span:nth-child(2){transition-delay:.025s}
+  .project .tech-tags span:nth-child(3){transition-delay:.05s}
+  .project .tech-tags span:nth-child(4){transition-delay:.075s}
+  .project .tech-tags span:nth-child(5){transition-delay:.1s}
+  .project:hover .tech-tags span{transform:translateY(-2px)}
+  .project-logic .editor-window{transition:transform .55s cubic-bezier(.2,.8,.2,1),box-shadow .55s}
+  .project-logic:hover .editor-window{transform:perspective(1200px) rotateY(-1deg) rotateX(2deg) rotateZ(.4deg) translateY(-3px);box-shadow:0 38px 85px #0008}
+  .publication-card{transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .3s}
+  .publication-card:hover{transform:translateY(-6px) rotate(-.35deg);box-shadow:0 22px 45px #0002;border-color:#849d69}
+  .education-panel{transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
+  .education-panel:hover{transform:translateY(-4px);box-shadow:0 18px 45px #0002}
+  .timeline-entry{transition:transform .35s ease}
+  .timeline-entry:hover{transform:translateX(5px)}
+  .timeline-entry:hover .timeline-dot{box-shadow:0 0 0 6px #d4f49a25,0 0 22px #7aa95540}
+  .toolkit-rows>div{transition:background .3s,padding .3s,border-color .3s}
+  .toolkit-rows>div:hover{background:#ffffff05;padding-left:12px;border-color:#7e966a}
+  .button,.contact-arrow{transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,background .3s}
+  .button:hover{transform:translateY(-3px);box-shadow:0 10px 25px #0003}
+  .button:hover span,.text-link:hover span{transform:translate(3px,-2px)}
+  .button span,.text-link span{display:inline-block;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+  .orb-label{transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s}
+  .hero-visual:hover .label-a{transform:translate(-3px,-5px) rotate(-6deg)}
+  .hero-visual:hover .label-b{transform:translate(3px,5px) rotate(5deg)}
+  .techie-avatars:hover .techie-avatar{margin-left:1px;transform:translateY(-5px) scale(1.08);box-shadow:0 9px 22px #0005}
+  .techie-avatars .techie-avatar:hover{transform:translateY(-9px) scale(1.16);z-index:2;border-color:var(--lime)}
+  .profile-avatar{transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
+  .profile-lockup:hover .profile-avatar{transform:rotate(-5deg) scale(1.06);box-shadow:0 0 0 7px #d9f99d1c,0 8px 24px #0004}
+  .contact-arrow:hover{transform:rotate(45deg);box-shadow:0 12px 30px #0003}
+  .craft-strip:hover>div{animation-play-state:paused}
+}
+@media(max-width:800px){
+  .project:hover{transform:none;box-shadow:none}
+  .techie-avatar{width:34px;height:34px}
+}
+@media(max-width:560px){
+  .profile-avatar-placeholder{font-size:19px}
+  .techie-avatar{width:30px;height:30px}
+  .visual-footnote-row{flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){
+  .project,.publication-card,.education-panel,.timeline-entry,.toolkit-rows>div,.button,.contact-arrow,.techie-avatar,.profile-avatar,.orb-label{transition:none!important}
+  .project:hover,.publication-card:hover,.education-panel:hover,.timeline-entry:hover,.toolkit-rows>div:hover,.button:hover,.contact-arrow:hover,.techie-avatar:hover,.profile-lockup:hover .profile-avatar{transform:none!important}
+}
