@@ -345,3 +345,31 @@ p{ text-wrap:pretty }
  .laptop-mark{width:24px;height:21px;margin-right:8px}
  .wordmark-initials{font-size:29px}
 }
+
+/* Make career availability a deliberate hero signal, not incidental footer copy. */
+.hero-bottom{align-items:center}
+.hero-bottom .availability-banner{display:inline-flex;align-items:center;gap:12px;padding:13px 16px;border:1px solid #526b43;border-radius:7px;background:linear-gradient(110deg,#243322 0%,#172119 78%);color:#eaf4df;letter-spacing:0;box-shadow:inset 3px 0 0 #d9f99d,0 8px 24px #0002;position:relative;overflow:hidden;max-width:100%}
+.availability-copy{display:flex;flex-direction:column;gap:3px}
+.hero-bottom .availability-copy strong{font-size:11px;letter-spacing:.65px;line-height:1.4;color:#e9f5df;font-weight:700}
+.hero-bottom .availability-copy small{font-size:10px;letter-spacing:.1px;line-height:1.5;color:#aebfa3}
+.hero-bottom .availability-banner .status-dot{width:8px;height:8px;box-shadow:0 0 0 5px #d9f99d14,0 0 14px #d9f99d80;animation:availability-pulse 2.2s ease-in-out infinite}
+.availability-arrow{font-size:18px;color:var(--lime);margin-left:5px;transition:transform .3s}
+.hero-bottom .availability-banner:hover .availability-arrow{transform:translate(3px,-3px)}
+.hero-bottom .availability-banner::after{content:"";position:absolute;inset:0 auto 0 -45%;width:30%;background:linear-gradient(90deg,transparent,#d9f99d10,transparent);transform:skewX(-18deg);animation:availability-sheen 7s ease-in-out infinite;pointer-events:none}
+@keyframes availability-pulse{0%,100%{box-shadow:0 0 0 4px #d9f99d10,0 0 8px #d9f99d40}50%{box-shadow:0 0 0 7px #d9f99d18,0 0 16px #d9f99d80}}
+@keyframes availability-sheen{0%,65%{left:-45%}85%,100%{left:130%}}
+@media(max-width:800px){
+ .hero-bottom .availability-banner{padding:10px 12px;gap:9px}
+ .hero-bottom .availability-copy strong{font-size:10px}
+ .hero-bottom .availability-copy small{font-size:9px}
+}
+@media(max-width:560px){
+ .hero-bottom{align-items:flex-start;flex-wrap:wrap}
+ .hero-bottom .availability-banner{width:100%;order:-1;padding:12px}
+ .hero-bottom .availability-copy strong{font-size:10px;letter-spacing:.35px}
+ .hero-bottom .availability-copy small{font-size:9px}
+ .hero-bottom>a{margin-left:auto}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero-bottom .availability-banner .status-dot,.hero-bottom .availability-banner::after{animation:none!important}
+}
