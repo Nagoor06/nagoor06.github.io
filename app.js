@@ -200,4 +200,35 @@
     document.addEventListener('visibilitychange',()=>{active=!document.hidden;startAnimation();});
     reducedMotion.addEventListener('change',startAnimation);sizeCanvas();startAnimation();
   }
+
+
+  // Creative hover physics: pointer spotlight + restrained 3D tilt on project cards.
+  // Disabled on touch devices and when reduced motion is requested.
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+  if (finePointer.matches && !reducedMotion.matches) {
+    document.querySelectorAll('.project').forEach(card => {
+      let bounds;
+      const move = event => {
+        bounds = bounds || card.getBoundingClientRect();
+        const x = event.clientX - bounds.left;
+        const y = event.clientY - bounds.top;
+        const px = x / bounds.width;
+        const py = y / bounds.height;
+        card.style.setProperty('--spot-x', `${Math.round(px * 100)}%`);
+        card.style.setProperty('--spot-y', `${Math.round(py * 100)}%`);
+        const tiltY = (px - .5) * 2.2;
+        const tiltX = (.5 - py) * 1.7;
+        card.style.transform = `perspective(1100px) translateY(-5px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+      };
+      card.addEventListener('pointerenter', () => { bounds = card.getBoundingClientRect(); });
+      card.addEventListener('pointermove', move);
+      card.addEventListener('pointerleave', () => {
+        bounds = null;
+        card.style.transform = '';
+        card.style.removeProperty('--spot-x');
+        card.style.removeProperty('--spot-y');
+      });
+    });
+  }
+
 })();
