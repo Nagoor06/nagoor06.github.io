@@ -11,54 +11,33 @@
 @media(min-width:801px){.hero .eyebrow{font-size:11px}.hero-description{font-size:15px}.project-copy>p{font-size:13px;line-height:1.8}.tech-tags span{font-size:9px}.project-actions .text-link{font-size:12px}.quiet-button{font-size:11px}.repo-link{font-size:10px}.code-editor{font-size:10px}.review-tabs button{font-size:10px}.review-output p{font-size:11px}.review-output{min-height:147px}.output-label{font-size:8px}.sample-notice{font-size:8px}.editor-titlebar{font-size:9px}.editor-toolbar{font-size:10px}.floating-source small{font-size:8px}.project-copy>p.project-aside{font-size:11px}.research-copy>p:not(.eyebrow){font-size:14px}.research-copy>p.research-intro{font-size:17px}.about-intro p{font-size:14px}.timeline-entry>p:last-of-type{font-size:13px}.timeline-role{font-size:12px}.education-panel>p{font-size:12px}.toolkit p{font-size:11px}.toolkit h4{font-size:12px}.certification-links small{font-size:9px}}
 @media(min-width:801px) and (max-width:1100px){.code-editor{font-size:8px}.hero .eyebrow{font-size:9px}.hero-description{font-size:13px}.project-copy>p{font-size:12px}.review-output p{font-size:10px}}
 @media(max-width:560px){.hero-description{font-size:13px}.project-copy>p{font-size:12px}.about-intro p{font-size:12px}.timeline-entry>p:last-of-type{font-size:12px}.review-output p{font-size:10px}}
-<<<<<<< HEAD
-
-
-/* Portfolio polish: animated cartoon avatar, clear type hierarchy, and accessible form states. */
-.wordmark { gap: 12px; }
-.wordmark img { width: 46px; height: 46px; object-fit: contain; border-radius: 50%; background: #8bd3fb; border: 1px solid #8bd3fb70; animation: avatar-bob 4.4s ease-in-out infinite; }
-@keyframes avatar-bob { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-4px) rotate(1deg); } }
-.nav-dock { border-color: #8bd3fb40; box-shadow: 0 14px 42px #0008, 0 0 0 1px #8bd3fb0a; }
-.nav-dock a { border-radius: 999px; }
-.nav-dock a[aria-current] { box-shadow: 0 4px 18px #8bd3fb28; }
-.nav-contact, .button { border-radius: 999px; }
-.hero-description, .about-intro p, .timeline-entry>p:last-of-type, .project-copy>p { color: #c0cfdd; }
-.project, .education-panel { transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease; }
-.project:hover { border-color: #8bd3fb65; box-shadow: 0 18px 55px #0002; }
-.contact-form { margin-top: 38px; padding: clamp(22px,4vw,38px); background: #102438; border: 1px solid #294054; border-radius: 22px; display: grid; gap: 20px; }
-.form-topline { display:flex; align-items:center; justify-content:space-between; gap:16px; }
-.form-topline h3 { font-size: clamp(22px,2.5vw,30px); letter-spacing:-.7px; }
-.form-row { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-.field { display:grid; gap:8px; }
-.field label { font-size:13px; font-weight:700; color:#eaf4fb; }
-.field input, .field select, .field textarea { width:100%; min-width:0; padding:13px 15px; color:#f4f8fc; background:#081726; border:1px solid #38566d; border-radius:10px; font:inherit; font-size:15px; line-height:1.6; transition:border-color .2s,box-shadow .2s; }
-.field input::placeholder, .field textarea::placeholder { color:#8ea6b8; }
-.field input:focus, .field select:focus, .field textarea:focus { outline:0; border-color:#8bd3fb; box-shadow:0 0 0 3px #8bd3fb22; }
-.field textarea { resize:vertical; min-height:120px; }
-.honey-field { position:absolute!important; width:1px!important; height:1px!important; overflow:hidden!important; clip-path:inset(50%)!important; white-space:nowrap!important; }
-.send-button { justify-self:start; border:0; cursor:pointer; }
-.form-status, .form-note { color:#b0c1d1; font-size:13px; line-height:1.7; }
-.form-status[data-state="success"] { color:#a8edc0; }
-.form-status[data-state="activation"] { color:#ffdb8a; }
-.form-status[data-state="error"] { color:#ffaaa5; }
-.form-status[data-state="pending"] { color:#8bd3fb; }
-:where(a,button,input,select,textarea):focus-visible { outline:3px solid #8bd3fb; outline-offset:4px; }
-@media(max-width:800px) { .form-row { grid-template-columns:1fr; } }
-@media(prefers-reduced-motion:reduce) { .wordmark img { animation:none; } }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-.profile-intro { display:flex; align-items:center; gap:16px; margin-bottom:22px; }
-.profile-intro img { width:76px; height:82px; object-fit:contain; background:#8bd3fb; border-radius:20px; animation:avatar-bob 4.4s ease-in-out infinite; }
-.profile-intro strong { display:block; color:#f4f8fc; font-size:19px; }
-.profile-intro span { display:block; color:#b0c1d1; font-size:13px; margin-top:3px; }
-@media(prefers-reduced-motion:reduce) { .profile-intro img { animation:none; } }
-<<<<<<< HEAD
->>>>>>> parent of 683f537 (Apply sky-blue and navy palette with readable type and refined navigation)
-=======
->>>>>>> parent of d866606 (Polish navigation, typography and contact form styles)
-=======
->>>>>>> parent of 683f537 (Apply sky-blue and navy palette with readable type and refined navigation)
-=======
->>>>>>> parent of 4e30891 (Style animated profile avatar)
+/* v1.1: readable typography across screen sizes. */
+body{font-size:18px;line-height:1.75}
+.hero-description{font-size:18px;line-height:1.75}
+.project-copy>p,.research-copy>p:not(.eyebrow),.about-intro p,.timeline-entry>p:last-of-type,.education-panel>p,.dialog-section p{font-size:17px;line-height:1.8}
+.section-heading>p,.toolkit p,.contact-email{font-size:16px}
+.project-actions .text-link,.repo-link,.quiet-button,.text-link,.desktop-nav a,.nav-contact,.contact-social a,.certification-links a{font-size:14px}
+.tech-tags span,.project-foot,.timeline-role,.coursework,.workflow-caption,.review-output p,.dialog-note{font-size:13px}
+.eyebrow,.project-topline,.project-status,.timeline-date,.publication-top,.publication-bottom{font-size:11px}
+.visual-footnote,.sample-notice,.concept-caption,.model-caption,.phone-concept{font-size:10px}
+.additional-projects{padding:28px 32px;border:1px solid var(--line);border-radius:8px;margin-top:25px}
+.additional-projects p{font-size:16px;line-height:1.8;margin:12px 0}
+.additional-projects .text-link{font-size:14px}
+@media(max-width:800px){
+body{font-size:16px}
+.hero-description,.project-copy>p,.research-copy>p:not(.eyebrow),.about-intro p,.timeline-entry>p:last-of-type,.education-panel>p,.dialog-section p{font-size:15px}
+.section-heading>p,.toolkit p{font-size:14px}
+.project-actions .text-link,.repo-link,.quiet-button,.text-link,.contact-social a{font-size:13px}
+.tech-tags span,.project-foot,.timeline-role,.coursework,.workflow-caption,.review-output p{font-size:12px}
+}
+@media(max-width:560px){
+body{font-size:16px}
+.hero-description,.project-copy>p,.research-copy>p:not(.eyebrow),.about-intro p,.timeline-entry>p:last-of-type,.education-panel>p,.dialog-section p{font-size:15px;line-height:1.75}
+.section-heading>p,.toolkit p{font-size:14px}
+.project-actions .text-link,.repo-link,.quiet-button,.text-link,.contact-social a{font-size:13px}
+.tech-tags span,.project-foot,.timeline-role,.coursework,.workflow-caption,.review-output p{font-size:11px}
+.eyebrow,.project-topline,.project-status,.timeline-date{font-size:10px}
+.visual-footnote,.sample-notice,.concept-caption{font-size:9px}
+.additional-projects{padding:22px}
+.additional-projects p{font-size:15px}
+}
