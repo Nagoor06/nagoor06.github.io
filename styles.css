@@ -438,9 +438,11 @@ h1,h2,h3,h4{font-weight:750}
 .contact-social{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .contact-social a{display:inline-flex;align-items:center;gap:10px;padding:12px 15px;border:1px solid #59684e;border-radius:7px;color:#e0e9d8;font-size:15px;font-weight:800;letter-spacing:.1px;transition:background .2s,border-color .2s,color .2s,transform .2s}
 .contact-social a:hover{background:#d9f99d;color:#172119;border-color:#d9f99d;transform:translateY(-2px)}
-.contact-social svg{display:block;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.contact-social a:first-child svg path:first-child{fill:currentColor;stroke:currentColor}
-.contact-social b{font-size:17px;font-weight:500}
+.contact-social a{min-height:48px;box-sizing:border-box}
+.contact-social .brand-logo{display:block;width:22px;height:22px;min-width:22px;object-fit:contain;flex:0 0 22px}
+.contact-social .brand-linkedin{width:21px;height:21px;min-width:21px;flex-basis:21px}
+.contact-social .brand-leetcode{width:23px;height:23px;min-width:23px;flex-basis:23px}
+.contact-social b{font-size:17px;font-weight:500;line-height:1}
 .contact-arrow{cursor:pointer}
-@media(max-width:800px){.contact-social a{font-size:14px;padding:11px 13px;gap:8px}.contact-social svg{width:20px;height:20px}}
-@media(max-width:560px){.contact-social{gap:9px}.contact-social a{font-size:13px;padding:10px 11px;gap:7px}.contact-social svg{width:18px;height:18px}}
+@media(max-width:800px){.contact-social a{font-size:14px;padding:11px 13px;gap:8px;min-height:44px}.contact-social .brand-logo{width:20px;height:20px;min-width:20px;flex-basis:20px}.contact-social .brand-leetcode{width:21px;height:21px;min-width:21px;flex-basis:21px}}
+@media(max-width:560px){.contact-social{gap:9px}.contact-social a{font-size:13px;padding:10px 11px;gap:7px;min-height:40px}.contact-social .brand-logo{width:18px;height:18px;min-width:18px;flex-basis:18px}.contact-social .brand-leetcode{width:19px;height:19px;min-width:19px;flex-basis:19px}}
