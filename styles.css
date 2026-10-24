@@ -123,3 +123,206 @@ body{font-size:16px}
   .site-footer>a{margin-left:auto}
   .orb-core small{font-size:9px;letter-spacing:1.6px}
 }
+
+/* Portfolio motion pass inspired by Uber Careers: purposeful lift, depth and responsive micro-interactions. */
+.profile-avatar-placeholder{display:grid;place-items:center;background:radial-gradient(circle at 30% 25%,#435b38,#17221a 72%);color:var(--lime);font:600 23px var(--serif);letter-spacing:-1px}
+.techie-avatars{gap:0}
+.techie-avatar{display:block;object-fit:cover;overflow:hidden;padding:0;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s;transform-origin:center bottom}
+.avatar-python,.avatar-ai,.avatar-backend{background:var(--panel)}
+@media(hover:hover) and (pointer:fine){
+  .project{transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s,border-color .35s;transform:translateY(0);will-change:transform}
+  .project:hover{transform:translateY(-7px);border-color:#9ebd7a;box-shadow:0 24px 65px #0005,0 0 0 1px #d9f99d10}
+  .project-logic:hover .logic-showcase{background:radial-gradient(ellipse at 55% 38%,#456b318c,transparent 72%)}
+  .project-commute:hover .commute-showcase{filter:saturate(1.08)}
+  .project:hover .project-status i{box-shadow:0 0 0 5px #b1d98216}
+  .project:hover .tech-tags span{border-color:#819b67;color:#e1edcf}
+  .project .tech-tags span{transition:border-color .3s,color .3s,transform .3s}
+  .project .tech-tags span:nth-child(2){transition-delay:.025s}
+  .project .tech-tags span:nth-child(3){transition-delay:.05s}
+  .project .tech-tags span:nth-child(4){transition-delay:.075s}
+  .project .tech-tags span:nth-child(5){transition-delay:.1s}
+  .project:hover .tech-tags span{transform:translateY(-2px)}
+  .project-logic .editor-window{transition:transform .55s cubic-bezier(.2,.8,.2,1),box-shadow .55s}
+  .project-logic:hover .editor-window{transform:perspective(1200px) rotateY(-1deg) rotateX(2deg) rotateZ(.4deg) translateY(-3px);box-shadow:0 38px 85px #0008}
+  .publication-card{transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .3s}
+  .publication-card:hover{transform:translateY(-6px) rotate(-.35deg);box-shadow:0 22px 45px #0002;border-color:#849d69}
+  .education-panel{transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
+  .education-panel:hover{transform:translateY(-4px);box-shadow:0 18px 45px #0002}
+  .timeline-entry{transition:transform .35s ease}
+  .timeline-entry:hover{transform:translateX(5px)}
+  .timeline-entry:hover .timeline-dot{box-shadow:0 0 0 6px #d4f49a25,0 0 22px #7aa95540}
+  .toolkit-rows>div{transition:background .3s,padding .3s,border-color .3s}
+  .toolkit-rows>div:hover{background:#ffffff05;padding-left:12px;border-color:#7e966a}
+  .button,.contact-arrow{transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,background .3s}
+  .button:hover{transform:translateY(-3px);box-shadow:0 10px 25px #0003}
+  .button:hover span,.text-link:hover span{transform:translate(3px,-2px)}
+  .button span,.text-link span{display:inline-block;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+  .orb-label{transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s}
+  .hero-visual:hover .label-a{transform:translate(-3px,-5px) rotate(-6deg)}
+  .hero-visual:hover .label-b{transform:translate(3px,5px) rotate(5deg)}
+  .techie-avatars:hover .techie-avatar{margin-left:1px;transform:translateY(-5px) scale(1.08);box-shadow:0 9px 22px #0005}
+  .techie-avatars .techie-avatar:hover{transform:translateY(-9px) scale(1.16);z-index:2;border-color:var(--lime)}
+  .profile-avatar{transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
+  .profile-lockup:hover .profile-avatar{transform:rotate(-5deg) scale(1.06);box-shadow:0 0 0 7px #d9f99d1c,0 8px 24px #0004}
+  .contact-arrow:hover{transform:rotate(45deg);box-shadow:0 12px 30px #0003}
+  .craft-strip:hover>div{animation-play-state:paused}
+}
+@media(max-width:800px){
+  .project:hover{transform:none;box-shadow:none}
+  .techie-avatar{width:34px;height:34px}
+}
+@media(max-width:560px){
+  .profile-avatar-placeholder{font-size:19px}
+  .techie-avatar{width:30px;height:30px}
+  .visual-footnote-row{flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){
+  .project,.publication-card,.education-panel,.timeline-entry,.toolkit-rows>div,.button,.contact-arrow,.techie-avatar,.profile-avatar,.orb-label{transition:none!important}
+  .project:hover,.publication-card:hover,.education-panel:hover,.timeline-entry:hover,.toolkit-rows>div:hover,.button:hover,.contact-arrow:hover,.techie-avatar:hover,.profile-lockup:hover .profile-avatar{transform:none!important}
+}
+
+/* v1.1 visual polish: deliberate type scale + expressive, pointer-aware interactions */
+:root{--type-body:16px;--type-small:12px;--type-micro:10px}
+body{font-size:var(--type-body);line-height:1.72}
+p{ text-wrap:pretty }
+.eyebrow,.project-topline,.project-status,.timeline-date,.publication-top,.publication-bottom{font-size:11px;line-height:1.6}
+.project-copy>p,.research-copy>p:not(.eyebrow),.about-intro p,.timeline-entry>p:last-of-type,.education-panel>p,.dialog-section p{font-size:15px;line-height:1.8}
+.hero-description{font-size:17px;line-height:1.8;max-width:48ch}
+.project h3{line-height:1.02}
+.project h3>span{font-size:clamp(15px,1.25vw,18px);line-height:1.5}
+.tech-tags span,.coursework span{font-size:12px}
+.project-actions .text-link,.repo-link,.quiet-button,.text-link,.desktop-nav a,.nav-contact,.contact-social a,.certification-links a{font-size:13px}
+.project-foot{font-size:12px;line-height:1.65;gap:12px}
+.project-foot .project-date{font-size:12px!important;white-space:nowrap}
+.editor-titlebar{font-size:12px!important;min-height:40px;line-height:1.45}
+.editor-titlebar .editor-status{font-size:10px!important}
+.code-editor{font-size:11px}
+.review-tabs button,.review-output p,.sample-notice{font-size:12px}
+.output-label{font-size:11px}
+.visual-footnote-row .visual-footnote{font-size:14px!important;line-height:1.65}
+.workflow-caption{font-size:14px!important}
+.model-caption,.concept-caption,.phone-concept,.floating-source small,.pickup-label small{font-size:12px!important;line-height:1.55}
+.timeline-role,.education-panel>p,.certification-links small{font-size:12px}
+.toolkit p{font-size:13px}
+.toolkit h4{font-size:14px}
+.contact-email{font-size:16px}
+.contact-social{font-size:12px}
+.site-footer{font-size:11px!important;line-height:1.7}
+.orb-core small{font-size:11px;letter-spacing:1.8px}
+.additional-projects p{font-size:15px;line-height:1.8}
+.case-dialog{font-size:15px}
+.dialog-lead{font-size:16px;line-height:1.7}
+.dialog-section>span,.dialog-note{font-size:12px}
+.dialog-section p.dialog-note{font-size:12px}
+.profile-specialty{font-size:12px;line-height:1.6}
+.hero-bottom,.hero-bottom>a,.contact-top>span{font-size:11px}
+.techie-avatar{width:40px;height:40px}
+.project,.publication-card,.education-panel,.experience-main,.toolkit-rows>div,.additional-projects,.hero-visual{isolation:isolate}
+.project{position:relative;overflow:hidden;--spot-x:50%;--spot-y:50%;transform-style:preserve-3d}
+.project::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;background:radial-gradient(420px circle at var(--spot-x) var(--spot-y),#d9f99d13,transparent 64%);transition:opacity .35s}
+.project::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;border-radius:inherit;padding:1px;opacity:0;background:conic-gradient(from var(--border-angle,0deg),transparent 0deg,#d9f99d 55deg,#8acb80 100deg,transparent 160deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;transition:opacity .35s}
+@media(hover:hover) and (pointer:fine){
+ .project{transition:transform .18s ease-out,box-shadow .35s,border-color .35s}
+ .project:hover{box-shadow:0 26px 70px #0007,0 0 36px #b6f27a0b;border-color:#799d61}
+ .project:hover::before{opacity:1}
+ .project:hover::after{opacity:.8;animation:border-orbit 3.2s linear infinite}
+ .project-copy,.project-visual,.project-foot{transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+ .project:hover .project-copy{transform:translateZ(12px)}
+ .project:hover .project-foot{transform:translateY(-2px)}
+ .project h3{transition:letter-spacing .4s,color .4s}
+ .project:hover h3{letter-spacing:-1.2px}
+ .project:hover .project-status i{animation:status-pulse 1.7s ease-in-out infinite}
+ .project:hover .tech-tags span{transform:translateY(-3px) rotate(-1deg)}
+ .project .tech-tags span{transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,color .3s}
+ .project .tech-tags span:nth-child(even){transition-delay:.035s}
+ .project .tech-tags span:nth-child(3n){transition-delay:.07s}
+ .project-logic:hover .editor-window{transform:perspective(900px) rotateY(-2.2deg) rotateX(1.4deg) translateY(-5px) scale(1.012);transform-origin:center;box-shadow:0 35px 75px #0008,0 0 30px #9ee67c10}
+ .project-commute:hover .commute-showcase{transform:translateY(-4px) scale(1.012);filter:saturate(1.12) contrast(1.02)}
+ .publication-card{position:relative;overflow:hidden}
+ .publication-card::before{content:"";position:absolute;top:-120%;left:-35%;height:300%;width:22%;transform:rotate(25deg);background:linear-gradient(90deg,transparent,#d9f99d20,transparent);transition:left .7s cubic-bezier(.2,.8,.2,1)}
+ .publication-card:hover::before{left:130%}
+ .education-panel:hover .edu-symbol{transform:rotate(45deg) scale(1.15);color:var(--lime)}
+ .edu-symbol{transition:transform .45s cubic-bezier(.2,.8,.2,1),color .3s}
+ .timeline-entry:hover .timeline-date{color:var(--lime);letter-spacing:1.2px}
+ .timeline-date{transition:color .3s,letter-spacing .3s}
+ .toolkit-rows>div{position:relative;overflow:hidden}
+ .toolkit-rows>div::after{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--lime);transform:scaleY(0);transform-origin:bottom;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+ .toolkit-rows>div:hover::after{transform:scaleY(1)}
+ .text-link{position:relative}
+ .text-link::after{content:"";position:absolute;left:0;right:1.3em;bottom:-3px;height:1px;background:var(--lime);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+ .text-link:hover::after,.text-link:focus-visible::after{transform:scaleX(1)}
+ .hero-visual{transition:filter .45s}
+ .hero-visual:hover{filter:drop-shadow(0 0 22px #b4ef6d12)}
+ .hero-visual:hover .orb-label{box-shadow:0 10px 30px #0005,0 0 0 1px #d9f99d35}
+ .profile-avatar{transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+ .profile-lockup:hover .profile-avatar{transform:translateY(-3px) rotate(-4deg) scale(1.055);box-shadow:0 0 0 5px #d9f99d22,0 10px 28px #0005}
+ .button-lime{position:relative;overflow:hidden}
+ .button-lime::before{content:"";position:absolute;inset:-60% auto -60% -40%;width:28%;transform:skewX(-20deg);background:linear-gradient(90deg,transparent,#fff8,transparent);transition:left .65s cubic-bezier(.2,.8,.2,1)}
+ .button-lime:hover::before{left:130%}
+ .contact-arrow{transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+ .contact-arrow:hover{transform:rotate(135deg) scale(1.08);box-shadow:0 0 0 7px #d9f99d18,0 0 30px #d9f99d18}
+ .techie-avatar{transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .3s}
+ .techie-avatars:hover .techie-avatar{transform:translateY(-5px) rotate(-4deg);box-shadow:0 10px 25px #0005}
+ .techie-avatars .techie-avatar:hover{transform:translateY(-10px) rotate(0) scale(1.18);z-index:3;border-color:var(--lime)}
+}
+@keyframes border-orbit{to{--border-angle:360deg}}
+@property --border-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
+@keyframes status-pulse{0%,100%{box-shadow:0 0 0 0 #d9f99d00}50%{box-shadow:0 0 0 6px #d9f99d19}}
+@media(max-width:1100px){
+ .page-width{width:min(100% - 64px,1300px)}
+ .project-copy>p,.research-copy>p:not(.eyebrow),.about-intro p,.timeline-entry>p:last-of-type,.education-panel>p,.dialog-section p{font-size:14px;line-height:1.75}
+ .project-foot .project-date{font-size:11px!important}
+ .code-editor{font-size:10px}
+}
+@media(max-width:800px){
+ body{font-size:15px}
+ .page-width{width:calc(100% - 40px)}
+ .site-header{height:78px;padding-inline:20px}
+ .hero-description{font-size:16px}
+ .project-copy>p,.research-copy>p:not(.eyebrow),.about-intro p,.timeline-entry>p:last-of-type,.education-panel>p,.dialog-section p{font-size:14px;line-height:1.75}
+ .project-topline,.project-status,.timeline-date,.publication-top,.publication-bottom,.eyebrow{font-size:10px}
+ .project-foot{font-size:11px}
+ .project-foot .project-date{font-size:11px!important}
+ .visual-footnote-row .visual-footnote{font-size:13px!important}
+ .workflow-caption,.model-caption,.concept-caption,.phone-concept{font-size:12px!important}
+ .toolkit p{font-size:12px}
+ .site-footer{font-size:11px!important}
+ .tech-tags span,.coursework span{font-size:11px}
+ .project{transform:none!important}
+ .project::after{display:none}
+}
+@media(max-width:560px){
+ body{font-size:15px;line-height:1.7}
+ .page-width{width:calc(100% - 32px)}
+ .hero-description{font-size:15px;line-height:1.75}
+ .profile-lockup .eyebrow{font-size:11px;letter-spacing:1px}
+ .profile-specialty{font-size:10px;letter-spacing:.35px}
+ .project-copy>p,.research-copy>p:not(.eyebrow),.about-intro p,.timeline-entry>p:last-of-type,.education-panel>p,.dialog-section p{font-size:14px;line-height:1.72}
+ .project h3{font-size:31px}
+ .project h3>span{font-size:15px}
+ .project-topline,.project-status,.timeline-date,.publication-top,.publication-bottom,.eyebrow{font-size:10px}
+ .project-foot{font-size:11px;line-height:1.55;gap:8px}
+ .project-foot .project-date{font-size:10px!important;white-space:normal}
+ .editor-titlebar{font-size:11px!important;padding:9px 8px;gap:6px}
+ .editor-titlebar .editor-status{font-size:10px!important}
+ .code-editor{font-size:9px}
+ .review-tabs button,.review-output p,.sample-notice{font-size:11px}
+ .visual-footnote-row .visual-footnote{font-size:12px!important}
+ .workflow-caption{font-size:12px!important}
+ .model-caption,.concept-caption,.phone-concept,.floating-source small,.pickup-label small{font-size:11px!important}
+ .toolkit p,.timeline-role,.education-panel>p,.certification-links small{font-size:12px}
+ .contact-email{font-size:14px}
+ .contact-social{font-size:11px}
+ .site-footer{font-size:10px!important}
+ .orb-core small{font-size:10px;letter-spacing:1.3px}
+ .techie-avatar{width:32px;height:32px}
+ .case-dialog{padding:30px 20px}
+ .dialog-lead{font-size:14px}
+ .dialog-section p.dialog-note{font-size:11px}
+ .project::before{display:none}
+ .project::after{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .project::before,.project::after,.publication-card::before,.button-lime::before{display:none!important}
+ .project:hover,.publication-card:hover,.education-panel:hover,.profile-lockup:hover .profile-avatar,.contact-arrow:hover{transform:none!important}
+}
