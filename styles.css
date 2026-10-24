@@ -448,5 +448,9 @@ h1,h2,h3,h4{font-weight:750}
 @media(max-width:800px){.contact-social a{font-size:14px;padding:11px 13px;gap:8px;min-height:44px}.contact-social .brand-logo{width:20px;height:20px;min-width:20px;flex-basis:20px}.contact-social .brand-leetcode{width:21px;height:21px;min-width:21px;flex-basis:21px}}
 @media(max-width:560px){.contact-social{gap:9px}.contact-social a{font-size:13px;padding:10px 11px;gap:7px;min-height:40px}.contact-social .brand-logo{width:18px;height:18px;min-width:18px;flex-basis:18px}.contact-social .brand-leetcode{width:19px;height:19px;min-width:19px;flex-basis:19px}}
 
-/* Requested green font color; preserve the existing layout and backgrounds. */
-body,body :is(p,span,li,label,small,strong,b,h1,h2,h3,h4,h5,h6,a){color:#198754}
+
+/* Keep social logos visible and green in both normal and hover states. */
+.contact-social a,.contact-social a span,.contact-social a b{color:#198754!important}
+.contact-social a:hover,.contact-social a:hover span,.contact-social a:hover b{color:#198754!important}
+.contact-social .brand-logo{filter:invert(40%) sepia(47%) saturate(667%) hue-rotate(91deg) brightness(91%) contrast(91%)!important;opacity:1!important;visibility:visible!important}
+.contact-social a:hover .brand-logo{filter:invert(40%) sepia(47%) saturate(667%) hue-rotate(91deg) brightness(91%) contrast(91%)!important}
