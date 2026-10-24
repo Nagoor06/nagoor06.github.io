@@ -44,3 +44,12 @@
 :where(a,button,input,select,textarea):focus-visible { outline:3px solid #8bd3fb; outline-offset:4px; }
 @media(max-width:800px) { .form-row { grid-template-columns:1fr; } }
 @media(prefers-reduced-motion:reduce) { .wordmark img { animation:none; } }
+<<<<<<< HEAD
+=======
+
+.profile-intro { display:flex; align-items:center; gap:16px; margin-bottom:22px; }
+.profile-intro img { width:76px; height:82px; object-fit:contain; background:#8bd3fb; border-radius:20px; animation:avatar-bob 4.4s ease-in-out infinite; }
+.profile-intro strong { display:block; color:#f4f8fc; font-size:19px; }
+.profile-intro span { display:block; color:#b0c1d1; font-size:13px; margin-top:3px; }
+@media(prefers-reduced-motion:reduce) { .profile-intro img { animation:none; } }
+>>>>>>> parent of 683f537 (Apply sky-blue and navy palette with readable type and refined navigation)
