@@ -8,17 +8,13 @@ A responsive, accessible portfolio for Python, AI application engineering, and b
 - Logic Lens code walkthrough and detailed project notes
 - CommuteCircle map concept, clearly marked as in development
 - IEEE publication, research and professional experience
-- Downloadable résumé, social links, animated cartoon avatar, and a contact form
+- Downloadable resume, working social links and copy-email action
 - Mobile navigation, keyboard-accessible dialogs and tabs
 - Self-hosted fonts and assets
 
 ## Local preview
 
 Serve this directory with any static HTTP server. For example, `python3 -m http.server 8000`, then open `http://localhost:8000`.
-
-## Contact form activation
-
-The form uses FormSubmit to forward messages to `veeraboinanagoor@gmail.com`. The first live submission may trigger a one-time confirmation email. Check the inbox and spam folder and activate the form, then submit a second test and verify receipt. The form preserves message contents on errors and never claims delivery unless the service explicitly confirms success. Email delivery has not been verified by this repository update.
 
 ## GitHub Pages
 
