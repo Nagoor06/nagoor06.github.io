@@ -53,6 +53,9 @@
 .profile-intro strong { display:block; color:#f4f8fc; font-size:19px; }
 .profile-intro span { display:block; color:#b0c1d1; font-size:13px; margin-top:3px; }
 @media(prefers-reduced-motion:reduce) { .profile-intro img { animation:none; } }
+<<<<<<< HEAD
 >>>>>>> parent of 683f537 (Apply sky-blue and navy palette with readable type and refined navigation)
 =======
 >>>>>>> parent of d866606 (Polish navigation, typography and contact form styles)
+=======
+>>>>>>> parent of 683f537 (Apply sky-blue and navy palette with readable type and refined navigation)
