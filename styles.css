@@ -428,3 +428,19 @@ p{ text-wrap:pretty }
 .section-heading h2 em,.research-copy h2 em{font-weight:400}
 @media(max-width:800px){.site-header .wordmark>.wordmark-name{font-size:10px;letter-spacing:1.3px}}
 @media(max-width:560px){.site-header .wordmark{gap:9px}.site-header .wordmark>.wordmark-name{font-size:9px;letter-spacing:1.1px}.site-header .desktop-nav a{font-size:14px}}
+
+
+/* Stronger typography and clearer professional profile links. */
+h1,h2,h3,h4{font-weight:750}
+.section-heading h2,.research-copy h2,.contact-section h2{font-weight:800}
+.project h3,.timeline-entry h3,.education-panel h3,.toolkit-heading h3,.dialog-section h3{font-weight:750}
+.eyebrow,.project-topline,.timeline-date,.publication-top,.toolkit-number{font-weight:800}
+.contact-social{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.contact-social a{display:inline-flex;align-items:center;gap:10px;padding:12px 15px;border:1px solid #59684e;border-radius:7px;color:#e0e9d8;font-size:15px;font-weight:800;letter-spacing:.1px;transition:background .2s,border-color .2s,color .2s,transform .2s}
+.contact-social a:hover{background:#d9f99d;color:#172119;border-color:#d9f99d;transform:translateY(-2px)}
+.contact-social svg{display:block;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.contact-social a:first-child svg path:first-child{fill:currentColor;stroke:currentColor}
+.contact-social b{font-size:17px;font-weight:500}
+.contact-arrow{cursor:pointer}
+@media(max-width:800px){.contact-social a{font-size:14px;padding:11px 13px;gap:8px}.contact-social svg{width:20px;height:20px}}
+@media(max-width:560px){.contact-social{gap:9px}.contact-social a{font-size:13px;padding:10px 11px;gap:7px}.contact-social svg{width:18px;height:18px}}
