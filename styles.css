@@ -46,6 +46,7 @@
 @media(max-width:800px) { .form-row { grid-template-columns:1fr; } }
 @media(prefers-reduced-motion:reduce) { .wordmark img { animation:none; } }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 .profile-intro { display:flex; align-items:center; gap:16px; margin-bottom:22px; }
@@ -59,3 +60,5 @@
 >>>>>>> parent of d866606 (Polish navigation, typography and contact form styles)
 =======
 >>>>>>> parent of 683f537 (Apply sky-blue and navy palette with readable type and refined navigation)
+=======
+>>>>>>> parent of 4e30891 (Style animated profile avatar)
