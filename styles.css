@@ -373,3 +373,47 @@ p{ text-wrap:pretty }
 @media(prefers-reduced-motion:reduce){
  .hero-bottom .availability-banner .status-dot,.hero-bottom .availability-banner::after{animation:none!important}
 }
+
+/* Career availability belongs beside the introduction, not in the hero footer. */
+.hero-copy .availability-banner{display:flex;width:fit-content;max-width:100%;align-items:center;gap:14px;margin-top:24px;padding:14px 17px 14px 14px;border:1px solid #607b4c;border-radius:6px;border-left:3px solid var(--lime);background:linear-gradient(105deg,#293b26 0%,#1a251c 72%,#172019 100%);color:#edf5e5;letter-spacing:0;box-shadow:0 12px 34px #0002,inset 0 1px #ffffff08;position:relative;overflow:hidden;isolation:isolate;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s}
+.hero-copy .availability-copy{display:flex;flex-direction:column;gap:4px}
+.hero-copy .availability-copy strong{font-size:12px;line-height:1.45;letter-spacing:.55px;color:#f0f6e9;font-weight:750}
+.hero-copy .availability-copy small{font-size:11px;line-height:1.5;color:#b9c9ad;letter-spacing:0}
+.hero-copy .availability-copy small b{color:var(--lime);font-weight:500;padding-inline:2px}
+.availability-pulse-wrap{width:26px;height:26px;flex:none;display:grid;place-items:center;border:1px solid #9dcb7860;border-radius:50%;background:#d9f99d0b}
+.hero-copy .availability-pulse-wrap .status-dot{width:8px;height:8px;box-shadow:0 0 0 5px #d9f99d13,0 0 15px #d9f99d9c;animation:availability-pulse 2.2s ease-in-out infinite}
+.hero-copy .availability-arrow{font-size:21px;color:var(--lime);margin-left:6px;transition:transform .3s;flex:none}
+.hero-copy .availability-banner::after{content:"";position:absolute;inset:0 auto 0 -50%;width:28%;background:linear-gradient(90deg,transparent,#d9f99d18,transparent);transform:skewX(-18deg);animation:availability-sheen 7s ease-in-out infinite;pointer-events:none;z-index:-1}
+@media(hover:hover) and (pointer:fine){
+ .hero-copy .availability-banner:hover{transform:translateY(-3px);border-color:#b1d88a;box-shadow:0 18px 42px #0004,0 0 26px #d9f99d0c}
+ .hero-copy .availability-banner:hover .availability-arrow{transform:translate(4px,-4px)}
+}
+@media(max-width:1100px){
+ .hero-copy .availability-banner{gap:10px;padding:12px}
+ .hero-copy .availability-copy strong{font-size:10px;letter-spacing:.3px}
+ .hero-copy .availability-copy small{font-size:9px}
+ .availability-pulse-wrap{width:23px;height:23px}
+}
+@media(max-width:800px){
+ .hero-copy .availability-banner{margin-top:20px;gap:9px;padding:11px}
+ .hero-copy .availability-copy strong{font-size:9px;letter-spacing:.2px}
+ .hero-copy .availability-copy small{font-size:8px}
+ .hero-copy .availability-arrow{font-size:17px;margin-left:0}
+}
+@media(max-width:560px){
+ .hero-copy .availability-banner{width:100%;margin-top:20px;padding:13px 12px;gap:11px}
+ .hero-copy .availability-copy strong{font-size:10px;letter-spacing:.35px}
+ .hero-copy .availability-copy small{font-size:9px;line-height:1.55}
+ .availability-pulse-wrap{width:26px;height:26px}
+ .hero-copy .availability-arrow{font-size:19px}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero-copy .availability-pulse-wrap .status-dot,.hero-copy .availability-banner::after{animation:none!important}
+ .hero-copy .availability-banner,.hero-copy .availability-arrow{transition:none!important}
+}
+
+/* Explicit laptop icon visibility: keep it visibly beside N.V. at every breakpoint. */
+.site-header .wordmark .laptop-mark{display:block!important;visibility:visible!important;opacity:1!important;width:36px;height:30px;min-width:36px;flex:0 0 36px;margin:0 12px 0 0;color:#d9f99d;overflow:visible}
+.site-header .wordmark .wordmark-initials{display:flex;align-items:center}
+@media(max-width:800px){.site-header .wordmark .laptop-mark{width:31px;height:26px;min-width:31px;flex-basis:31px;margin-right:9px}}
+@media(max-width:560px){.site-header .wordmark .laptop-mark{width:29px;height:24px;min-width:29px;flex-basis:29px;margin-right:8px}}
