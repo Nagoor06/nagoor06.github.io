@@ -326,3 +326,22 @@ p{ text-wrap:pretty }
  .project::before,.project::after,.publication-card::before,.button-lime::before{display:none!important}
  .project:hover,.publication-card:hover,.education-panel:hover,.profile-lockup:hover .profile-avatar,.contact-arrow:hover{transform:none!important}
 }
+
+/* Brand direction: no profile or team portraits; laptop mark anchors the N.V. wordmark. */
+.laptop-mark{width:31px;height:26px;flex:none;color:var(--lime);margin-right:12px;transition:transform .35s cubic-bezier(.2,.8,.2,1),filter .35s}
+.wordmark{gap:0}
+.wordmark-initials{display:flex;align-items:center;font-size:35px;font-weight:700;letter-spacing:-3px;line-height:1}
+.profile-lockup{margin-bottom:0}
+.profile-lockup .eyebrow{margin-bottom:6px}
+.profile-avatar,.techie-avatars,.techie-avatar{display:none!important}
+@media(hover:hover) and (pointer:fine){
+ .wordmark:hover .laptop-mark{transform:translateY(-3px) rotate(-3deg);filter:drop-shadow(0 0 9px #d9f99d60)}
+}
+@media(max-width:800px){
+ .laptop-mark{width:27px;height:23px;margin-right:9px}
+ .wordmark-initials{font-size:31px}
+}
+@media(max-width:560px){
+ .laptop-mark{width:24px;height:21px;margin-right:8px}
+ .wordmark-initials{font-size:29px}
+}
