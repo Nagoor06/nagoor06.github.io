@@ -4,10 +4,12 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const menuButton = document.querySelector('.menu-toggle');
   const mobileNav = document.querySelector('#mobile-nav');
-  const closeMenu = () => {
+  const closeMenu = (restoreFocus = false) => {
+    const wasOpen = !mobileNav.hidden;
     menuButton.setAttribute('aria-expanded', 'false');
     menuButton.setAttribute('aria-label', 'Open navigation');
     mobileNav.hidden = true;
+    if (wasOpen && restoreFocus) menuButton.focus();
   };
   menuButton.addEventListener('click', () => {
     const expanded = menuButton.getAttribute('aria-expanded') === 'true';
@@ -15,9 +17,20 @@
     menuButton.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
     mobileNav.hidden = expanded;
   });
-  mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
-  window.matchMedia('(min-width: 561px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
+  mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeMenu()));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !mobileNav.hidden) {
+      event.preventDefault();
+      closeMenu(true);
+    }
+  });
+  document.addEventListener('click', event => {
+    if (!mobileNav.hidden && !mobileNav.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
+  });
+  document.addEventListener('focusin', event => {
+    if (!mobileNav.hidden && !mobileNav.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
+  });
+  window.matchMedia('(min-width: 761px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
 
   document.querySelector('#year').textContent = String(new Date().getFullYear());
   if (!reducedMotion.matches && 'IntersectionObserver' in window) {
@@ -33,15 +46,29 @@
     document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
   }
   const progress = document.querySelector('.scroll-progress');
+  const navLinks = [...document.querySelectorAll('.desktop-nav a, .mobile-nav a, .nav-contact')];
+  const sections = [...document.querySelectorAll('main > section[id]')];
   let scrollQueued = false;
   const updateProgress = () => {
     const height = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.width = `${height > 0 ? Math.min(100, window.scrollY / height * 100) : 0}%`;
+    let current = 'home';
+    sections.forEach(section => {
+      if (section.getBoundingClientRect().top <= window.innerHeight * .35) current = section.id;
+    });
+    if (height > 0 && window.scrollY >= height - 2) current = sections[sections.length - 1].id;
+    navLinks.forEach(link => {
+      if (link.hash === `#${current}`) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
     scrollQueued = false;
   };
-  window.addEventListener('scroll', () => {
+  const queueProgress = () => {
     if (!scrollQueued) { scrollQueued = true; window.requestAnimationFrame(updateProgress); }
-  }, { passive: true });
+  };
+  window.addEventListener('scroll', queueProgress, { passive: true });
+  window.addEventListener('resize', queueProgress, { passive: true });
+  document.fonts.ready.then(queueProgress);
   updateProgress();
 
   const sampleContent = {
@@ -83,15 +110,22 @@
   }));
 
   // Use Gmail compose in desktop browsers for both email entry points; preserve mobile mail-app behavior.
-  const configureGmailLink = link => {
-    if (link && window.matchMedia('(max-width: 560px)').matches) {
-      link.href = link.dataset.mobileMailto;
-      link.removeAttribute('target');
-      link.removeAttribute('rel');
-    }
-  };
-  configureGmailLink(document.querySelector('.contact-arrow'));
-  configureGmailLink(document.querySelector('.commute-contact-link'));
+  const mobileEmail = window.matchMedia('(max-width: 760px)');
+  document.querySelectorAll('[data-mobile-mailto]').forEach(link => {
+    const desktopHref = link.href;
+    const configureEmailLink = () => {
+      link.href = mobileEmail.matches ? link.dataset.mobileMailto : desktopHref;
+      if (mobileEmail.matches) {
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
+      } else {
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      }
+    };
+    mobileEmail.addEventListener('change', configureEmailLink);
+    configureEmailLink();
+  });
 
   let dialogTrigger = null;
   document.querySelectorAll('[data-open]').forEach(button => button.addEventListener('click', () => {
@@ -127,8 +161,10 @@
 
   // Lightweight, procedural artwork: all motion stays local to the browser.
   const canvas = document.querySelector('#intelligence-orb');
-  const context = canvas.getContext('2d');
-  let width = 500, height = 450, radius = 158, stage = 0, frame = 0, active = true, elapsed = 0;
+  const context = canvas?.getContext('2d');
+  const motionToggle = document.querySelector('#motion-toggle');
+  let width = 500, height = 450, radius = 158, stage = 0, frame = 0, elapsed = 0;
+  let inViewport = false, userPaused = false, lastTick = 0, lastPaint = 0;
   const stageColors = [[205,237,164],[152,213,194],[212,244,154]];
   const captions = ['Retrieve relevant context.', 'Connect the context. Reason through it.', 'Turn the result into a useful experience.'];
   const stageButtons = document.querySelectorAll('[data-stage]');
@@ -137,7 +173,7 @@
     stageButtons.forEach(item => { const selected = item === button; item.classList.toggle('is-active', selected); item.setAttribute('aria-pressed', String(selected)); });
     document.querySelector('#workflow-caption').textContent = captions[stage];
     document.querySelector('#visual-index').textContent = `0${stage + 1} / 03`;
-    if (reducedMotion.matches) draw(elapsed);
+    if (reducedMotion.matches || userPaused) draw(elapsed);
   }));
   const sizeCanvas = () => {
     const rect = canvas.getBoundingClientRect();
@@ -203,43 +239,44 @@
       context.beginPath();context.arc(p[0],p[1],i%9===stage?2.4:1.1,0,Math.PI*2);context.fillStyle=color(alpha);context.fill();
     }
   }
-  const animate = time => { elapsed = time; draw(time); if(active&&!reducedMotion.matches)frame=window.requestAnimationFrame(animate); };
-  const startAnimation = () => { window.cancelAnimationFrame(frame); if(active&&!reducedMotion.matches)frame=window.requestAnimationFrame(animate);else draw(elapsed); };
-  if(context){
-    new ResizeObserver(sizeCanvas).observe(canvas);
-    if('IntersectionObserver' in window)new IntersectionObserver(entries=>{active=entries[0].isIntersecting&&!document.hidden;startAnimation();},{threshold:0}).observe(canvas);
-    document.addEventListener('visibilitychange',()=>{active=!document.hidden;startAnimation();});
-    reducedMotion.addEventListener('change',startAnimation);sizeCanvas();startAnimation();
+  const canAnimate = () => context && inViewport && !document.hidden && !reducedMotion.matches && !userPaused;
+  const animate = time => {
+    frame = 0;
+    if (!canAnimate()) return;
+    if (lastTick) elapsed += Math.min(time - lastTick, 100);
+    lastTick = time;
+    // Keep the visual smooth without repainting the sphere at a monitor's full refresh rate.
+    if (!lastPaint || time - lastPaint >= 1000 / 30) { draw(elapsed); lastPaint = time; }
+    frame = window.requestAnimationFrame(animate);
+  };
+  const startAnimation = () => {
+    window.cancelAnimationFrame(frame);
+    frame = 0; lastTick = 0; lastPaint = 0;
+    if (canAnimate()) frame = window.requestAnimationFrame(animate);
+    else if (inViewport && !document.hidden) draw(elapsed);
+  };
+  const updateMotionControl = () => {
+    motionToggle.disabled = reducedMotion.matches || !context;
+    motionToggle.setAttribute('aria-pressed', String(userPaused || reducedMotion.matches || !context));
+    motionToggle.textContent = reducedMotion.matches ? 'Reduced motion enabled' : !context ? 'Static illustration' : userPaused ? 'Resume animation' : 'Pause animation';
+    startAnimation();
+  };
+  motionToggle.addEventListener('click', () => { userPaused = !userPaused; updateMotionControl(); });
+  reducedMotion.addEventListener('change', updateMotionControl);
+  if (context) {
+    sizeCanvas();
+    if ('ResizeObserver' in window) new ResizeObserver(sizeCanvas).observe(canvas);
+    else window.addEventListener('resize', sizeCanvas, { passive: true });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(entries => {
+        inViewport = entries[0].isIntersecting;
+        startAnimation();
+      }).observe(canvas);
+    } else inViewport = true;
+    // Visibility changes do not override the observer's off-screen state.
+    document.addEventListener('visibilitychange', startAnimation);
   }
-
-
-  // Creative hover physics: pointer spotlight + restrained 3D tilt on project cards.
-  // Disabled on touch devices and when reduced motion is requested.
-  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-  if (finePointer.matches && !reducedMotion.matches) {
-    document.querySelectorAll('.project').forEach(card => {
-      let bounds;
-      const move = event => {
-        bounds = bounds || card.getBoundingClientRect();
-        const x = event.clientX - bounds.left;
-        const y = event.clientY - bounds.top;
-        const px = x / bounds.width;
-        const py = y / bounds.height;
-        card.style.setProperty('--spot-x', `${Math.round(px * 100)}%`);
-        card.style.setProperty('--spot-y', `${Math.round(py * 100)}%`);
-        const tiltY = (px - .5) * 2.2;
-        const tiltX = (.5 - py) * 1.7;
-        card.style.transform = `perspective(1100px) translateY(-5px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
-      };
-      card.addEventListener('pointerenter', () => { bounds = card.getBoundingClientRect(); });
-      card.addEventListener('pointermove', move);
-      card.addEventListener('pointerleave', () => {
-        bounds = null;
-        card.style.transform = '';
-        card.style.removeProperty('--spot-x');
-        card.style.removeProperty('--spot-y');
-      });
-    });
-  }
+  updateMotionControl();
 
 })();
+

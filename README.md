@@ -9,8 +9,11 @@ A responsive, accessible portfolio for Python, AI application engineering, and b
 - CommuteCircle map concept, clearly marked as in development
 - IEEE publication, research and professional experience
 - Downloadable resume, working social links and copy-email action
-- Mobile navigation, keyboard-accessible dialogs and tabs
-- Self-hosted fonts and assets
+- Sticky navigation with an active-section indicator and keyboard-friendly mobile menu
+- Keyboard-accessible dialogs, review tabs, and horizontally scrollable code sample
+- Consistent body text, clear hover/focus states, and layouts for narrow screens
+- Pausable artwork; rendering stops off screen, in hidden tabs, and for reduced motion
+- Self-hosted fonts, social icons, and assets; no third-party asset requests
 
 ## Local preview
 
@@ -18,7 +21,7 @@ Serve this directory with any static HTTP server. For example, `python3 -m http.
 
 ## GitHub Pages
 
-This is intended for the public `Nagoor06/nagoor06.github.io` repository. In **Settings → Pages**, choose **Deploy from a branch**, **main**, and **/(root)**. The `.nojekyll` file preserves the buildless static site.
+This is intended for the public `Nagoor06/nagoor06.github.io` repository. In **Settings → Pages**, choose **Deploy from a branch**, **v1.1**, and **/(root)**. The `.nojekyll` file preserves the buildless static site.
 
 ## Editing
 
@@ -32,3 +35,12 @@ CommuteCircle is presented as work in progress. Its map and phone are portfolio 
 Fonts: Manrope and Instrument Serif are redistributed under the SIL Open Font License; the license texts are included in `assets/`.
 
 © Nagoor Veeraboina. Portfolio content and visual design.
+
+
+## v1.1 maintenance
+
+The stylesheet is organized as base component rules followed by four responsive breakpoints. Avoid appending competing typography overrides: edit the component or the relevant breakpoint directly. The mobile menu and email-link behavior share a 760px breakpoint.
+
+GitHub Pages publishes the repository root of `v1.1`. No build command, Node dependencies, environment variables, or backend are required. Email links open a compose window; the portfolio does not send email itself.
+
+The GitHub and LinkedIn icons are from Bootstrap Icons (MIT), and the LeetCode icon is from Simple Icons (CC0). See `assets/icons-LICENSE.txt`.
