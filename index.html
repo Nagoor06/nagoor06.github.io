@@ -18,8 +18,9 @@
   <link rel="preload" href="assets/instrument-serif-0.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="assets/manrope.css">
   <link rel="stylesheet" href="assets/instrument-serif.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261025-contact">
   <script src="app.js" defer></script>
+  <script src="contact.js?v=20261025-contact" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -41,7 +42,7 @@
         <h1 id="hero-heading">Building AI.<br>Making it<br><em>useful.</em><span class="hero-period" aria-hidden="true">*</span></h1>
         <p class="hero-description">I’m Nagoor. I turn ideas into AI applications with Python backends, thoughtful interfaces, and a little curiosity.</p>
         <a class="availability-banner" href="#contact" aria-label="Open to Python and AI opportunities. Contact Nagoor."><span class="availability-pulse-wrap"><i class="status-dot"></i></span><span class="availability-copy"><strong>OPEN TO PYTHON &amp; AI OPPORTUNITIES</strong><small>AI engineering <b>·</b> Python development <b>·</b> Backend roles</small></span><span class="availability-arrow" aria-hidden="true">↗</span></a>
-        <div class="hero-actions"><a class="button button-lime" href="#work">Explore my work <span aria-hidden="true">↘</span></a><a class="text-link resume-link" href="assets/Nagoor_Veeraboina_Resume.pdf" download>Download résumé <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-actions"><a class="button button-lime" href="#work">Explore my work <span aria-hidden="true">↘</span></a><a class="button resume-link" href="assets/Nagoor_Veeraboina_Resume.pdf" download="Nagoor_Veeraboina_Resume.pdf">Download Resume <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg></a></div>
       </div>
       <div class="hero-visual" aria-label="Interactive illustration of an AI workflow">
         <div class="visual-topline"><span class="tiny-dot"></span><span>FROM INPUT TO INSIGHT</span><span class="visual-index" id="visual-index">01 / 03</span></div>
@@ -54,7 +55,7 @@
           <div class="orb-coordinate coord-one" aria-hidden="true">x: context</div><div class="orb-coordinate coord-two" aria-hidden="true">y: possibility</div>
         </div>
         <div class="workflow-control"><p class="workflow-caption" id="workflow-caption" aria-live="polite">Retrieve relevant context.</p><div class="workflow-steps" role="group" aria-label="Explore an AI workflow"><button class="is-active" data-stage="0" aria-pressed="true"><small>01</small> Retrieve</button><button data-stage="1" aria-pressed="false"><small>02</small> Reason</button><button data-stage="2" aria-pressed="false"><small>03</small> Respond</button></div></div>
-        <div class="visual-footnote-row"><p class="visual-footnote">An interactive look at how I think about AI.</p><button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="false" aria-label="Pause or resume the AI illustration">Pause animation</button></div>
+        <div class="visual-footnote-row"><div class="visual-personality"><img class="techie-avatars" src="assets/tech-avatar-trio.webp" width="768" height="384" alt="" aria-hidden="true" decoding="async"><p class="visual-footnote">A little curiosity.<br>A lot of possibilities.</p></div><button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="false" aria-label="Pause or resume the AI illustration">Pause animation</button></div>
       </div>
       <div class="hero-bottom"><span>BASED IN INDIA <span class="meta-divider">/</span> OPEN TO REMOTE</span><a href="#work">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a></div>
     </section>
@@ -90,11 +91,45 @@
       <div class="toolkit reveal"><div class="toolkit-heading"><p class="eyebrow">TOOLS I WORK WITH</p><h3>The right tool.<br>The whole picture.</h3></div><div class="toolkit-rows"><div><span class="toolkit-number">01</span><h4>Build</h4><p>Python · FastAPI · SQL · REST APIs · React · React Native</p></div><div><span class="toolkit-number">02</span><h4>Integrate</h4><p>LLM APIs · RAG · Embeddings · PostgreSQL · pgvector · JWT</p></div><div><span class="toolkit-number">03</span><h4>Evaluate & ship</h4><p>TensorFlow · scikit-learn · SHAP · LIME · pytest · Git · Azure DevOps</p></div></div></div>
     </section>
 
-    <section class="contact-section" id="contact" aria-labelledby="contact-heading"><div class="page-width contact-inner"><div class="contact-top"><p class="eyebrow"><span class="status-dot"></span> OPEN TO THE NEXT CHAPTER</p><span>PYTHON · AI APPLICATIONS · BACKEND</span></div><h2 id="contact-heading">Let’s build something<br><em>worth using.</em><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=veeraboinanagoor%40gmail.com&amp;su=Let%27s%20talk" target="_blank" rel="noopener noreferrer" data-mobile-mailto="mailto:veeraboinanagoor@gmail.com" aria-label="Email Nagoor" class="contact-arrow">↗</a></h2><div class="contact-bottom"><a class="contact-email" href="mailto:veeraboinanagoor@gmail.com">veeraboinanagoor@gmail.com</a><button id="copy-email" class="copy-email" aria-label="Copy email address"><span id="copy-label">Copy email</span> <span aria-hidden="true">⧉</span></button><span class="copy-status" id="copy-status" role="status"></span><div class="contact-social" aria-label="Professional profiles">
-<a href="https://github.com/Nagoor06" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><img class="brand-logo brand-github" src="assets/github.svg" alt="" aria-hidden="true" width="22" height="22" loading="lazy"><span>GitHub</span><b aria-hidden="true">↗</b></a>
-<a href="https://www.linkedin.com/in/nagoor-veeraboina-4b5b82224/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><img class="brand-logo brand-linkedin" src="assets/linkedin.svg" alt="" aria-hidden="true" width="22" height="22" loading="lazy"><span>LinkedIn</span><b aria-hidden="true">↗</b></a>
-<a href="https://leetcode.com/u/preprod/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode profile"><img class="brand-logo brand-leetcode" src="assets/leetcode.svg" alt="" aria-hidden="true" width="22" height="22" loading="lazy"><span>LeetCode</span><b aria-hidden="true">↗</b></a>
-</div></div></div></section>
+    <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="page-width contact-inner">
+        <div class="contact-top"><p class="eyebrow"><span class="status-dot"></span> OPEN TO THE NEXT CHAPTER</p><span>PYTHON · AI APPLICATIONS · BACKEND</span></div>
+        <div class="contact-grid">
+          <div class="contact-intro">
+            <h2 id="contact-heading">Let’s build something<br><em>worth using.</em></h2>
+            <p>Have a role, a project, or a question in mind? Tell me a little about it. I’d love to hear from you.</p>
+            <div class="contact-art" aria-hidden="true"><img src="assets/tech-avatar-trio.webp" width="768" height="384" alt="" loading="lazy" decoding="async"></div>
+            <a class="contact-direct" href="mailto:veeraboinanagoor@gmail.com">Prefer email? Write to me directly <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+          </div>
+          <form id="contact-form" class="contact-form" action="https://formsubmit.co/veeraboinanagoor@gmail.com" method="POST" aria-labelledby="form-heading">
+            <h3 id="form-heading">Start a conversation.</h3>
+            <p class="form-intro">A few details are all it takes.</p>
+            <div class="form-row">
+              <div class="form-field"><label for="contact-name">Your name <span aria-hidden="true">*</span></label><input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Your name" minlength="2" maxlength="80" required></div>
+              <div class="form-field"><label for="contact-email">Email address <span aria-hidden="true">*</span></label><input id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" maxlength="254" required></div>
+            </div>
+            <div class="form-field"><label for="contact-topic">What’s on your mind?</label><select id="contact-topic" name="topic"><option value="Job opportunity">A job opportunity</option><option value="Project collaboration">A project collaboration</option><option value="Question or hello">A question or a hello</option></select></div>
+            <div class="form-field"><label for="contact-message">Your message <span aria-hidden="true">*</span></label><textarea id="contact-message" name="message" rows="5" minlength="10" maxlength="5000" placeholder="Tell me about the opportunity, idea, or question…" aria-describedby="message-help" required></textarea><div class="message-meta"><span id="message-help">At least 10 characters.</span><span id="message-count" aria-hidden="true">0 / 5000</span></div></div>
+            <div class="form-trap" aria-hidden="true"><label for="contact-website">Leave this field empty</label><input id="contact-website" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+            <input type="hidden" name="_subject" value="New portfolio inquiry">
+            <input type="hidden" name="_template" value="table">
+            <button class="send-button" type="submit"><span id="send-label">Send message</span><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 3-7 18-4-7-7-4 18-7ZM10 14 21 3"/></svg></button>
+            <p class="form-privacy">Delivered via FormSubmit. Your email lets me reply to you.</p>
+            <p id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1"></p>
+            <noscript><p class="form-privacy">After you send, FormSubmit will open a confirmation page.</p></noscript>
+          </form>
+        </div>
+        <div class="contact-bottom">
+          <a class="contact-email" href="mailto:veeraboinanagoor@gmail.com">veeraboinanagoor@gmail.com</a>
+          <button id="copy-email" class="copy-email" aria-label="Copy email address"><span id="copy-label">Copy email</span> <span aria-hidden="true">⧉</span></button><span class="copy-status" id="copy-status" role="status"></span>
+          <div class="contact-social" aria-label="Professional profiles">
+            <a href="https://github.com/Nagoor06" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><img class="brand-logo brand-github" src="assets/github.svg" alt="" aria-hidden="true" width="22" height="22" loading="lazy"><span>GitHub</span><b aria-hidden="true">↗</b></a>
+            <a href="https://www.linkedin.com/in/nagoor-veeraboina-4b5b82224/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><img class="brand-logo brand-linkedin" src="assets/linkedin.svg" alt="" aria-hidden="true" width="22" height="22" loading="lazy"><span>LinkedIn</span><b aria-hidden="true">↗</b></a>
+            <a href="https://leetcode.com/u/preprod/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode profile"><img class="brand-logo brand-leetcode" src="assets/leetcode.svg" alt="" aria-hidden="true" width="22" height="22" loading="lazy"><span>LeetCode</span><b aria-hidden="true">↗</b></a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
   <footer class="page-width site-footer"><span>© <span id="year">2026</span> NAGOOR VEERABOINA</span><span>BUILT WITH CURIOSITY. SHIPPED WITH CARE.</span><a href="#home">Back to top ↑</a></footer>
 
