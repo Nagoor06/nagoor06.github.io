@@ -11,7 +11,7 @@ A responsive, accessible portfolio for Python, AI application engineering, and b
 - Prominent Download Resume button, working social links and copy-email action
 - Inline contact form with validation, accessible status messages, a honeypot, and timeout handling
 - Custom tech-avatar artwork, optimized as a transparent WebP
-- Sticky navigation with an active-section indicator and keyboard-friendly mobile menu
+- Floating navigation dock with active-section highlighting and a visual Explore panel
 - Keyboard-accessible dialogs, review tabs, and horizontally scrollable code sample
 - Consistent body text, clear hover/focus states, and layouts for narrow screens
 - Pausable artwork; rendering stops off screen, in hidden tabs, and for reduced motion
@@ -43,7 +43,7 @@ Fonts: Manrope and Instrument Serif are redistributed under the SIL Open Font Li
 
 ## v1.1 maintenance
 
-The stylesheet is organized as base component rules followed by four responsive breakpoints. Avoid appending competing typography overrides: edit the component or the relevant breakpoint directly. The mobile menu and email-link behavior share a 760px breakpoint.
+The stylesheet is organized as base component rules followed by four responsive breakpoints. Avoid appending competing typography overrides: edit the component or the relevant breakpoint directly. The navigation and email-link behavior use a 760px breakpoint.
 
 GitHub Pages publishes the repository root of `v1.1`. No build command, Node dependencies, environment variables, or backend are required. The contact form uses FormSubmit to forward inquiries; the direct-email links open a compose window.
 
@@ -64,3 +64,12 @@ node --test tests/contact.test.cjs
 ## Avatar artwork
 
 `assets/tech-avatar-trio.webp` is a 768 × 384 transparent illustration generated with the built-in ImageGen tool, then encoded for web delivery. It appears beside the AI workflow and in the contact section. The generation brief is in `assets/tech-avatar-trio.prompt.md`. The characters are decorative illustrations, not people or endorsements.
+
+## Project exploration
+
+- `enhancements.css` and `enhancements.js` contain the floating dock, visual Explore panel, shareable project dialogs, and guided Logic Lens sample.
+- Project URLs: `/#logic-lens`, `/#commutecircle`, and `/#logic-lens-demo`. Direct links, browser Back/Forward, keyboard navigation, Escape, and project-link copying are supported.
+- The 24-second walkthrough is authored illustrative content, not a recording or a live LLM response. It makes no AI request. The standard, duplicate-value, and no-match examples run a local JavaScript equivalent of the displayed Python algorithm.
+- Playback starts only on request, pauses when the tab is hidden or the dialog closes, and is disabled under reduced motion. Manual steps remain available.
+- The live Logic Lens app requires authentication for actual reviews. Its optional RAG configuration remains accurately described as deployment-dependent.
+- The dock reserves footer space and hides during dialogs or detected mobile-keyboard use. Canvas artwork pauses behind dialogs.

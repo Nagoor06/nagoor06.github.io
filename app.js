@@ -2,36 +2,6 @@
 
 (() => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const menuButton = document.querySelector('.menu-toggle');
-  const mobileNav = document.querySelector('#mobile-nav');
-  const closeMenu = (restoreFocus = false) => {
-    const wasOpen = !mobileNav.hidden;
-    menuButton.setAttribute('aria-expanded', 'false');
-    menuButton.setAttribute('aria-label', 'Open navigation');
-    mobileNav.hidden = true;
-    if (wasOpen && restoreFocus) menuButton.focus();
-  };
-  menuButton.addEventListener('click', () => {
-    const expanded = menuButton.getAttribute('aria-expanded') === 'true';
-    menuButton.setAttribute('aria-expanded', String(!expanded));
-    menuButton.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
-    mobileNav.hidden = expanded;
-  });
-  mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeMenu()));
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && !mobileNav.hidden) {
-      event.preventDefault();
-      closeMenu(true);
-    }
-  });
-  document.addEventListener('click', event => {
-    if (!mobileNav.hidden && !mobileNav.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
-  });
-  document.addEventListener('focusin', event => {
-    if (!mobileNav.hidden && !mobileNav.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
-  });
-  window.matchMedia('(min-width: 761px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
-
   document.querySelector('#year').textContent = String(new Date().getFullYear());
   if (!reducedMotion.matches && 'IntersectionObserver' in window) {
     document.documentElement.classList.add('motion-enabled');
@@ -46,7 +16,7 @@
     document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
   }
   const progress = document.querySelector('.scroll-progress');
-  const navLinks = [...document.querySelectorAll('.desktop-nav a, .mobile-nav a, .nav-contact')];
+  const navLinks = [...document.querySelectorAll('.nav-dock a, .explore-links a')];
   const sections = [...document.querySelectorAll('main > section[id]')];
   let scrollQueued = false;
   const updateProgress = () => {
@@ -58,7 +28,7 @@
     });
     if (height > 0 && window.scrollY >= height - 2) current = sections[sections.length - 1].id;
     navLinks.forEach(link => {
-      if (link.hash === `#${current}`) link.setAttribute('aria-current', 'location');
+      if (link.hash === `#${current}` || (link.hash === '#explore' && current === 'about')) link.setAttribute('aria-current', 'location');
       else link.removeAttribute('aria-current');
     });
     scrollQueued = false;
@@ -125,19 +95,6 @@
     };
     mobileEmail.addEventListener('change', configureEmailLink);
     configureEmailLink();
-  });
-
-  let dialogTrigger = null;
-  document.querySelectorAll('[data-open]').forEach(button => button.addEventListener('click', () => {
-    const dialog = document.getElementById(button.dataset.open);
-    dialogTrigger = button;
-    dialog.showModal();
-    document.body.classList.add('modal-open');
-  }));
-  document.querySelectorAll('.case-dialog').forEach(dialog => {
-    dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
-    dialog.addEventListener('click', event => { if (event.target === dialog) { const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } });
-    dialog.addEventListener('close', () => { document.body.classList.remove('modal-open'); if (dialogTrigger) dialogTrigger.focus({ preventScroll: true }); });
   });
 
   let copyTimer;
@@ -239,7 +196,7 @@
       context.beginPath();context.arc(p[0],p[1],i%9===stage?2.4:1.1,0,Math.PI*2);context.fillStyle=color(alpha);context.fill();
     }
   }
-  const canAnimate = () => context && inViewport && !document.hidden && !reducedMotion.matches && !userPaused;
+  const canAnimate = () => context && inViewport && !document.hidden && !document.body.classList.contains('modal-open') && !reducedMotion.matches && !userPaused;
   const animate = time => {
     frame = 0;
     if (!canAnimate()) return;
@@ -275,6 +232,7 @@
     } else inViewport = true;
     // Visibility changes do not override the observer's off-screen state.
     document.addEventListener('visibilitychange', startAnimation);
+    document.addEventListener('portfolio:overlaychange', startAnimation);
   }
   updateMotionControl();
 
