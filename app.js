@@ -2,6 +2,26 @@
 
 (() => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const skillStrip = document.querySelector('.craft-strip');
+  const skillToggle = document.querySelector('#skills-motion-toggle');
+  let skillsPaused = false, skillsVisible = false;
+  const updateSkillsMotion = () => {
+    const paused = skillsPaused || reducedMotion.matches || !skillsVisible || document.hidden || document.body.classList.contains('modal-open');
+    skillStrip.classList.toggle('is-paused', paused);
+    skillToggle.disabled = reducedMotion.matches;
+    skillToggle.setAttribute('aria-pressed', String(skillsPaused || reducedMotion.matches));
+    skillToggle.setAttribute('aria-label', reducedMotion.matches ? 'Skills animation disabled by reduced-motion preference' : skillsPaused ? 'Resume skill animation' : 'Pause skill animation');
+    skillToggle.textContent = reducedMotion.matches ? 'Reduced motion' : skillsPaused ? 'Resume' : 'Pause';
+  };
+  skillToggle.addEventListener('click', () => { skillsPaused = !skillsPaused; updateSkillsMotion(); });
+  reducedMotion.addEventListener('change', updateSkillsMotion);
+  document.addEventListener('visibilitychange', updateSkillsMotion);
+  document.addEventListener('portfolio:overlaychange', updateSkillsMotion);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => { skillsVisible = entries[0].isIntersecting; updateSkillsMotion(); }).observe(skillStrip);
+  } else skillsVisible = true;
+  updateSkillsMotion();
+
   document.querySelector('#year').textContent = String(new Date().getFullYear());
   if (!reducedMotion.matches && 'IntersectionObserver' in window) {
     document.documentElement.classList.add('motion-enabled');
@@ -16,7 +36,7 @@
     document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
   }
   const progress = document.querySelector('.scroll-progress');
-  const navLinks = [...document.querySelectorAll('.nav-dock a, .explore-links a')];
+  const navLinks = [...document.querySelectorAll('.explore-links a')];
   const sections = [...document.querySelectorAll('main > section[id]')];
   let scrollQueued = false;
   const updateProgress = () => {
@@ -28,7 +48,7 @@
     });
     if (height > 0 && window.scrollY >= height - 2) current = sections[sections.length - 1].id;
     navLinks.forEach(link => {
-      if (link.hash === `#${current}` || (link.hash === '#explore' && current === 'about')) link.setAttribute('aria-current', 'location');
+      if (link.hash === `#${current}`) link.setAttribute('aria-current', 'location');
       else link.removeAttribute('aria-current');
     });
     scrollQueued = false;

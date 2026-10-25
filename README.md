@@ -11,7 +11,7 @@ A responsive, accessible portfolio for Python, AI application engineering, and b
 - Prominent Download Resume button, working social links and copy-email action
 - Inline contact form with validation, accessible status messages, a honeypot, and timeout handling
 - Custom tech-avatar artwork, optimized as a transparent WebP
-- Floating navigation dock with active-section highlighting and a visual Explore panel
+- Unobtrusive header that scrolls away, with a visual Explore panel in the header and footer
 - Keyboard-accessible dialogs, review tabs, and horizontally scrollable code sample
 - Consistent body text, clear hover/focus states, and layouts for narrow screens
 - Pausable artwork; rendering stops off screen, in hidden tabs, and for reduced motion
@@ -67,13 +67,21 @@ node --test tests/contact.test.cjs
 
 ## Project exploration
 
-- `enhancements.css` and `enhancements.js` contain the floating dock, visual Explore panel, shareable project dialogs, and guided Logic Lens sample.
+- `enhancements.css` and `enhancements.js` contain the cursor accent, visual Explore panel, shareable project dialogs, and guided Logic Lens sample.
 - Project URLs: `/#logic-lens`, `/#commutecircle`, and `/#logic-lens-demo`. Direct links, browser Back/Forward, keyboard navigation, Escape, and project-link copying are supported.
 - The 24-second walkthrough is authored illustrative content, not a recording or a live LLM response. It makes no AI request. The standard, duplicate-value, and no-match examples run a local JavaScript equivalent of the displayed Python algorithm.
 - Playback starts only on request, pauses when the tab is hidden or the dialog closes, and is disabled under reduced motion. Manual steps remain available.
 - The live Logic Lens app requires authentication for actual reviews. Its optional RAG configuration remains accurately described as deployment-dependent.
-- The dock reserves footer space and hides during dialogs or detected mobile-keyboard use. Canvas artwork pauses behind dialogs.
+- Navigation stays in the document flow, with no floating centre menu. Canvas artwork pauses behind dialogs.
 
 ## Assistant activation preview
 
 The `agent/` directory contains a separately staged AI assistant and role-fit interface, grounded public-profile data, a server route, and mocked transport tests. It is **not active in the main portfolio**. `agent/preview.html` labels its disabled AI controls and authored example clearly. A secure API credential and a deployed backend are still required. See `agent/README.md` for activation and integration steps.
+
+## Skills ribbon
+
+The skills ribbon uses two equal groups for a continuous CSS animation. Its Pause/Resume button controls motion independently of the hero artwork. It pauses off screen, in hidden tabs, behind dialogs, and for reduced-motion preferences.
+
+## Pointer accent
+
+A small ring follows mouse movement on devices with a fine pointer and hover. It preserves the native cursor, subtly expands over links, and hides over editable fields, during dialogs, on keyboard input, and when idle. Animation frames stop when the ring settles. Touch, reduced-motion, and forced-color modes disable the accent.

@@ -165,8 +165,7 @@ button[hidden],[hidden] {
   justify-content: space-between;
   margin: auto;
   border-bottom: 1px solid #ffffff0e;
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 80;
   background: #101512f5;
   backdrop-filter: blur(16px);
@@ -624,35 +623,17 @@ button[hidden],[hidden] {
   color: var(--lime);
 }
 
-.craft-strip {
-  border-block: 1px solid #313d2c;
-  background: #151c15;
-  overflow: hidden;
-  padding: 15px 0;
-}
-
-.craft-strip>div {
-  display: flex;
-  align-items: center;
-  gap: 42px;
-  width: max-content;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  color: #b1c0a6;
-  animation: none;
-}
-
-.craft-strip span {
-  font-size: 25px;
-  line-height: 1;
-  color: var(--lime);
-}
-@keyframes marquee{
-to {
-  transform: translateX(-50%);
-}
-}
+/* Two equal groups make a continuous, seamless skills ribbon. */
+.craft-strip { position: relative; border-block: 1px solid #313d2c; background: #151c15; padding-block: 15px; }
+.craft-viewport { overflow: hidden; }
+.craft-track { display: flex; width: max-content; animation: marquee 36s linear infinite; }
+.craft-group { display: flex; align-items: center; justify-content: space-around; gap: 42px; padding-right: 42px; min-width: 100vw; flex: none; font-size: 13px; font-weight: 500; letter-spacing: 1px; color: #b1c0a6; white-space: nowrap; }
+.craft-group span { font-size: 25px; line-height: 1; color: var(--lime); }
+.craft-strip.is-paused .craft-track { animation-play-state: paused; }
+.skills-motion-toggle { position: absolute; right: max(16px, env(safe-area-inset-right)); top: 50%; transform: translateY(-50%); border: 1px solid #667b53; border-radius: 8px; background: #182318f5; box-shadow: 0 0 20px 12px #151c15; color: #d4e6bf; font-size: 12px; font-weight: 700; padding: 8px 12px; min-height: 44px; min-width: 64px; z-index: 2; }
+.skills-motion-toggle:hover:not(:disabled) { background: var(--lime); color: #1b2d13; }
+.skills-motion-toggle:disabled { color: #bdcdb0; }
+@keyframes marquee { to { transform: translateX(-50%); } }
 .section-heading {
   display: flex;
   align-items: flex-end;
@@ -2370,7 +2351,7 @@ html.motion-enabled .reveal.is-visible {
   .hero-bottom>span:first-child { font-size: 10px; }
   .hero-bottom>a { font-size: 10px; }
   .hero-bottom .meta-divider { margin-inline: 5px; }
-  .craft-strip>div { font-size: 12px; gap: 24px; }
+  .craft-group { font-size: 12px; gap: 24px; padding-right: 24px; }
   .section-space { padding-block: 64px; }
   .section-heading { margin-bottom: 32px; }
   .section-heading h2 { font-size: 38px; letter-spacing: -1.6px; }

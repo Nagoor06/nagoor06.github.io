@@ -2,6 +2,68 @@
 
 (() => {
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  // Preserve the native cursor. Run frames only while the decorative ring moves.
+  const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
+  const forcedColors = matchMedia('(forced-colors: active)');
+  const cursor = document.createElement('div');
+  cursor.className = 'cursor-accent';
+  cursor.setAttribute('aria-hidden', 'true');
+  document.body.append(cursor);
+  let cursorFrame = 0, idleTimer = 0, cursorTick = 0;
+  let cursorX = 0, cursorY = 0, targetX = 0, targetY = 0, cursorVisible = false;
+  const hideCursor = () => {
+    cancelAnimationFrame(cursorFrame);
+    clearTimeout(idleTimer);
+    cursorFrame = 0;
+    cursorTick = 0;
+    cursorVisible = false;
+    cursor.classList.remove('is-visible', 'is-pressed');
+  };
+  const drawCursor = now => {
+    const ease = 1 - Math.exp(-Math.min(cursorTick ? now - cursorTick : 16, 50) / 55);
+    cursorTick = now;
+    cursorX += (targetX - cursorX) * ease;
+    cursorY += (targetY - cursorY) * ease;
+    cursor.style.transform = `translate3d(${cursorX - 18}px, ${cursorY - 18}px, 0)`;
+    if (Math.abs(targetX - cursorX) + Math.abs(targetY - cursorY) > .2) {
+      cursorFrame = requestAnimationFrame(drawCursor);
+    } else {
+      cursorFrame = 0;
+      cursorTick = 0;
+    }
+  };
+  document.addEventListener('pointermove', event => {
+    if (event.pointerType !== 'mouse' || !finePointer.matches || reducedMotion.matches || forcedColors.matches ||
+        document.hidden || document.body.classList.contains('modal-open') ||
+        event.target.closest('input,textarea,select,[contenteditable="true"]')) {
+      hideCursor();
+      return;
+    }
+    targetX = event.clientX;
+    targetY = event.clientY;
+    if (!cursorVisible) {
+      cursorX = targetX;
+      cursorY = targetY;
+      cursorVisible = true;
+      cursor.style.transform = `translate3d(${cursorX - 18}px, ${cursorY - 18}px, 0)`;
+      cursor.classList.add('is-visible');
+    }
+    cursor.classList.toggle('is-interactive', Boolean(event.target.closest('a,button,[role="tab"]')));
+    if (!cursorFrame) cursorFrame = requestAnimationFrame(drawCursor);
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(hideCursor, 850);
+  }, { passive: true });
+  document.addEventListener('pointerdown', () => { if (cursorVisible) cursor.classList.add('is-pressed'); }, { passive: true });
+  document.addEventListener('pointerup', () => cursor.classList.remove('is-pressed'), { passive: true });
+  document.documentElement.addEventListener('pointerleave', hideCursor);
+  document.addEventListener('keydown', hideCursor);
+  document.addEventListener('visibilitychange', hideCursor);
+  document.addEventListener('portfolio:overlaychange', hideCursor);
+  window.addEventListener('blur', hideCursor);
+  reducedMotion.addEventListener('change', hideCursor);
+  finePointer.addEventListener('change', hideCursor);
+  forcedColors.addEventListener('change', hideCursor);
+
   const routeDialogs = new Map([
     ['#explore', document.querySelector('#explore-dialog')],
     ['#logic-lens', document.querySelector('#logic-dialog')],
@@ -119,16 +181,6 @@
       reset = setTimeout(() => { status.textContent = ''; }, 7000);
     });
   });
-
-  // Keep the dock clear of a mobile keyboard without hiding contact controls.
-  const viewport = window.visualViewport;
-  const updateKeyboard = () => {
-    const editing = document.activeElement?.matches('input,textarea,select');
-    document.body.classList.toggle('keyboard-open', Boolean(editing && viewport && innerHeight - viewport.height > 120));
-  };
-  viewport?.addEventListener('resize', updateKeyboard, { passive: true });
-  document.addEventListener('focusin', updateKeyboard);
-  document.addEventListener('focusout', () => requestAnimationFrame(updateKeyboard));
 
   const demo = document.querySelector('#demo-dialog');
   const tabs = [...demo.querySelectorAll('[data-demo-step]')];
