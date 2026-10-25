@@ -1,0 +1,51 @@
+.agent-preview { padding: 56px 0 100px; }
+.agent-preview h1 { font-size: clamp(38px, 6vw, 68px); line-height: 1.1; letter-spacing: -2px; margin-block: 22px; }
+.agent-preview-lead { max-width: 66ch; color: #b7c7aa; font-size: 18px; }
+.agent-preview-state { padding: 12px 16px; background: #26371e; border: 1px solid #536b41; border-radius: 8px; color: #d0e5bc; font-size: 14px; margin: 26px 0; }
+.agent-launch { margin: 18px 0 42px; display: inline-flex; align-items: center; gap: 16px; border: 1px solid #a9ce7e; padding: 12px 22px; background: var(--lime); color: #1a2813; border-radius: 10px; font-weight: 700; }
+.agent-launch img { width: 76px; height: 38px; object-fit: contain; }
+.agent-dialog { padding: 0; width: min(640px,calc(100% - 24px)); height: min(740px,90dvh); max-height: 90dvh; border: 1px solid #617a4e; border-radius: 20px; color: var(--text); background: #172017; box-shadow: 0 24px 100px #0008; overflow: hidden; }
+.agent-dialog[open] { display: flex; flex-direction: column; }
+.agent-dialog::backdrop { background: #070d08c9; backdrop-filter: blur(9px); }
+.agent-heading { display: flex; gap: 14px; align-items: center; padding: 22px; border-bottom: 1px solid #3e5133; }
+.agent-heading img { width: 88px; height: 44px; object-fit: contain; }
+.agent-heading h2 { font-size: 20px; letter-spacing: -.6px; }
+.agent-heading p { color: #b5c7a5; font-size: 12px; }
+.agent-close { margin-left: auto; background: none; border: 1px solid #5c7449; border-radius: 50%; width: 42px; height: 42px; flex: none; font-size: 26px; }
+.agent-close:hover { color: #182413; background: var(--lime); }
+.agent-log { overflow: auto; flex: 1; padding: 22px; min-height: 100px; scroll-behavior: smooth; }
+.agent-bubble { padding: 15px 18px; background: #263621; border: 1px solid #425b34; border-radius: 14px 14px 14px 3px; font-size: 15px; line-height: 1.8; margin-bottom: 14px; white-space: pre-wrap; }
+.agent-bubble.user { margin-left: 48px; background: #d7efb6; color: #22301a; border: none; border-radius: 14px 14px 3px 14px; }
+.agent-sources { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+.agent-sources a { display: inline-flex; align-items: center; padding: 8px 11px; min-height: 40px; font-size: 12px; line-height: 1.4; white-space: normal; border: 1px solid #708956; border-radius: 7px; color: #d8f2b5; }
+.agent-sources a:hover { background: #3b512c; }
+.agent-prompts { display: flex; flex-wrap: wrap; gap: 7px; padding: 0 22px 16px; }
+.agent-prompts button { padding: 8px 11px; min-height: 40px; border: 1px solid #597449; border-radius: 20px; background: #24351c; font-size: 12px; }
+.agent-prompts button:hover { background: var(--lime); color: #203018; }
+.agent-form { padding: 16px 22px 18px; border-top: 1px solid #425738; }
+.agent-form label, .role-fit label { display: block; font-weight: 700; font-size: 13px; margin-bottom: 7px; }
+.agent-compose { display: flex; align-items: stretch; gap: 9px; }
+.agent-compose textarea { resize: vertical; min-height: 54px; max-height: 160px; width: 100%; padding: 12px; background: #0d160e; color: var(--text); border: 1px solid #687e56; border-radius: 9px; font-size: 16px; }
+.agent-compose button { padding: 12px 18px; border-radius: 9px; background: var(--lime); color: #1c2b12; font-weight: 700; font-size: 14px; }
+.agent-compose button:disabled { opacity: .45; }
+.agent-privacy { color: #acbf9c; font-size: 11px; margin-top: 8px; line-height: 1.65; }
+.agent-privacy a { text-decoration: underline; text-underline-offset: 3px; }
+.agent-status { font-size: 13px; margin-top: 8px; color: #d3e7bc; }
+.agent-status:empty { display: none; }
+.role-fit { display: grid; grid-template-columns: .9fr 1.1fr; gap: 44px; padding: 38px; background: var(--cream); color: var(--ink); border-radius: 20px; margin: 26px 0; }
+.role-fit h2 { font-size: 38px; letter-spacing: -1.5px; line-height: 1.2; margin: 12px 0 18px; }
+.role-fit p { color: #54624a; font-size: 16px; }
+.role-fit textarea { width: 100%; min-height: 170px; padding: 15px; resize: vertical; border: 1px solid #849377; border-radius: 9px; background: #fbfcf7; font-size: 16px; color: #22301b; }
+.role-fit button { background: #253d1b; color: #f1f7e8; border-radius: 8px; padding: 12px 18px; min-height: 46px; margin-top: 12px; font-weight: 700; font-size: 14px; }
+.role-fit button:disabled { opacity: .5; }
+.role-fit .fit-results { grid-column: 1/-1; border-top: 1px solid #a9b49e; padding-top: 22px; }
+.fit-results:empty { display: none; }
+.fit-results h3 { font-size: 21px; margin-block: 18px 10px; }
+.fit-match { margin: 12px 0; border-left: 3px solid #7a9b50; padding: 8px 16px; }
+.fit-match strong { font-size: 16px; }
+.fit-match a { text-decoration: underline; font-size: 14px; color: #324e21; }
+.fit-gap { margin: 10px 0; font-size: 15px; }
+.role-fit .agent-status { color: #4b6139; }
+.agent-example { background: none; color: #c5dfaa; text-decoration: underline; text-underline-offset: 4px; font-size: 13px; margin-bottom: 24px; }
+@media(max-width:760px) { .role-fit{grid-template-columns:1fr;gap:25px;padding:25px}.role-fit h2{font-size:32px}.agent-heading{padding:16px}.agent-heading img{width:65px}.agent-log{padding:16px}.agent-form{padding:14px 16px}.agent-prompts{padding-inline:16px}.agent-dialog{width:calc(100% - 14px);height:92dvh;max-height:92dvh}.agent-heading h2{font-size:18px}.agent-compose button{padding-inline:12px} }
+@media(prefers-reduced-motion:reduce){.agent-log{scroll-behavior:auto}}

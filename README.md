@@ -73,3 +73,7 @@ node --test tests/contact.test.cjs
 - Playback starts only on request, pauses when the tab is hidden or the dialog closes, and is disabled under reduced motion. Manual steps remain available.
 - The live Logic Lens app requires authentication for actual reviews. Its optional RAG configuration remains accurately described as deployment-dependent.
 - The dock reserves footer space and hides during dialogs or detected mobile-keyboard use. Canvas artwork pauses behind dialogs.
+
+## Assistant activation preview
+
+The `agent/` directory contains a separately staged AI assistant and role-fit interface, grounded public-profile data, a server route, and mocked transport tests. It is **not active in the main portfolio**. `agent/preview.html` labels its disabled AI controls and authored example clearly. A secure API credential and a deployed backend are still required. See `agent/README.md` for activation and integration steps.
