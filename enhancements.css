@@ -92,9 +92,6 @@ html { scrollbar-gutter: stable; }
 .architecture-path { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 18px 0; padding: 16px; border: 1px solid #405437; border-radius: 8px; font-size: 13px; color: #d0e8bc; }
 .architecture-path span { padding: 5px 9px; background: #283b21; border-radius: 4px; }
 .architecture-path b { font-weight: 400; color: #90ac79; }
-.toolkit-rows p a { display: inline-block; min-height: 36px; padding-block: 3px; text-decoration: underline; text-decoration-color: #657757; text-underline-offset: 5px; transition: color .2s; }
-.toolkit-rows p a:hover { color: var(--lime); text-decoration-color: var(--lime); }
-.toolkit-heading .evidence-note { margin-top: 16px; color: #aabd9b; font-size: 13px; max-width: 25ch; }
 @media (max-width: 760px) {
   .site-header { height: 72px; }
   .header-note { display: none; }

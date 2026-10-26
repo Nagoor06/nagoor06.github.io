@@ -10,7 +10,8 @@ A responsive, accessible portfolio for Python, AI application engineering, and b
 - IEEE publication, research and professional experience
 - Prominent Download Resume button, working social links and copy-email action
 - Inline contact form with validation, accessible status messages, a honeypot, and timeout handling
-- Custom tech-avatar artwork, optimized as a transparent WebP
+- Personal portrait edited to match the forest-green palette, plus decorative tech-avatar artwork
+- Visual skill groups, visible together on desktop and manually browsable with swipe/arrow controls on narrow screens
 - Unobtrusive header that scrolls away, with a visual Explore panel in the header and footer
 - Keyboard-accessible dialogs, review tabs, and horizontally scrollable code sample
 - Consistent body text, clear hover/focus states, and layouts for narrow screens
@@ -51,7 +52,7 @@ The GitHub and LinkedIn icons are from Bootstrap Icons (MIT), and the LeetCode i
 
 ## Contact-form activation and verification
 
-The recipient is `veeraboinanagoor@gmail.com`. FormSubmit requires recipient confirmation on first use. If this address/site has not already been activated, submit a test message from the published site, open FormSubmit's confirmation email (check Spam), and activate it. Submit another test after confirmation to check receipt. Recipient activation and inbox delivery cannot be verified from this repository.
+The recipient is `veeraboinanagoor@gmail.com`. FormSubmit requires recipient confirmation on first use. If this address/site has not already been activated, submit a test message from the published site, open FormSubmit's confirmation email (check Spam), and activate it. Submit another test after confirmation to check receipt. Nagoor confirmed successful inbox delivery on 26 October 2026. The form retains activation and error handling for future service changes.
 
 The form stays on the portfolio when JavaScript is enabled. It treats activation responses separately from confirmed submission, preserves the draft after errors or activation requests, prevents duplicate clicks while sending, and times out after 20 seconds. No API key is embedded. A direct email link remains available. Without JavaScript, the native POST uses FormSubmit's confirmation page. Provider-side CAPTCHA behavior is left at its default.
 
@@ -78,9 +79,13 @@ node --test tests/contact.test.cjs
 
 The `agent/` directory contains a separately staged AI assistant and role-fit interface, grounded public-profile data, a server route, and mocked transport tests. It is **not active in the main portfolio**. `agent/preview.html` labels its disabled AI controls and authored example clearly. A secure API credential and a deployed backend are still required. See `agent/README.md` for activation and integration steps.
 
-## Skills ribbon
+## Visual skills and portrait
 
-The skills ribbon uses two equal groups for a continuous CSS animation. Its Pause/Resume button controls motion independently of the hero artwork. It pauses off screen, in hidden tabs, behind dialogs, and for reduced-motion preferences.
+The former automatic skills ribbon and duplicate text toolkit are replaced by one illustrated skills section. Desktop displays all three skill groups together. Narrow screens use native horizontal scroll snapping, swipe, previous/next buttons, and Left/Right/Home/End keyboard controls. There is no automatic playback or Pause control. Skill links retain the relevant project or research destination. `personal.css` and `personal.js` own these components.
+
+`assets/nagoor-portrait.webp` is a 960 × 1200 portrait edited from Nagoor's supplied photograph using the built-in ImageGen tool. The edit preserves his identity, glasses, hair, and shirt, with a chest-up crop, lighting correction, and forest-green backdrop. The original upload is unchanged. The exact edit brief is in `assets/nagoor-portrait.prompt.md`. The WebP is encoded for delivery, with explicit dimensions and lazy loading on the larger About portrait.
+
+The form's implementation caption was removed at Nagoor's request. Submission behavior is unchanged. Successful inbox delivery was confirmed by Nagoor on 26 October 2026.
 
 ## Pointer accent
 
