@@ -123,15 +123,6 @@
   let width = 500, height = 450, radius = 158, stage = 0, frame = 0, elapsed = 0;
   let inViewport = false, userPaused = false, lastTick = 0, lastPaint = 0;
   const stageColors = [[205,237,164],[152,213,194],[212,244,154]];
-  const captions = ['Retrieve relevant context.', 'Connect the context. Reason through it.', 'Turn the result into a useful experience.'];
-  const stageButtons = document.querySelectorAll('[data-stage]');
-  stageButtons.forEach(button => button.addEventListener('click', () => {
-    stage = Number(button.dataset.stage);
-    stageButtons.forEach(item => { const selected = item === button; item.classList.toggle('is-active', selected); item.setAttribute('aria-pressed', String(selected)); });
-    document.querySelector('#workflow-caption').textContent = captions[stage];
-    document.querySelector('#visual-index').textContent = `0${stage + 1} / 03`;
-    if (reducedMotion.matches || userPaused) draw(elapsed);
-  }));
   const sizeCanvas = () => {
     const rect = canvas.getBoundingClientRect();
     width = rect.width; height = rect.height; radius = Math.min(width * .33, height * .39);
@@ -151,7 +142,7 @@
   function draw(time) {
     if (!context || !width) return;
     context.clearRect(0, 0, width, height);
-    const angle = time * .00009 + .38;
+    const angle = time * .00006 + .38;
     const glow = context.createRadialGradient(width / 2, height / 2, radius * .2, width / 2, height / 2, radius * 1.45);
     glow.addColorStop(0,color(.025));glow.addColorStop(.6,color(.045));glow.addColorStop(1,color(0));
     context.fillStyle = glow;context.fillRect(0,0,width,height);
@@ -203,7 +194,7 @@
     if (lastTick) elapsed += Math.min(time - lastTick, 100);
     lastTick = time;
     // Keep the visual smooth without repainting the sphere at a monitor's full refresh rate.
-    if (!lastPaint || time - lastPaint >= 1000 / 30) { draw(elapsed); lastPaint = time; }
+    if (!lastPaint || time - lastPaint >= 1000 / 20) { draw(elapsed); lastPaint = time; }
     frame = window.requestAnimationFrame(animate);
   };
   const startAnimation = () => {

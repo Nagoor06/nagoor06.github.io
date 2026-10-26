@@ -35,7 +35,7 @@ This is intended for the public `Nagoor06/nagoor06.github.io` repository. In **S
 - `tests/contact.test.cjs`: message transport regression tests
 - `assets/`: fonts, social preview, favicon, and resume
 
-CommuteCircle is presented as work in progress. Its map and phone are portfolio concept illustrations, not screenshots of a released product. Logic Lens's RAG feature is optional and depends on its deployment configuration. Performance numbers are the resume's user-supplied figures, not portfolio benchmarks.
+CommuteCircle is presented as work in progress. Its map and phone are portfolio concept illustrations, not screenshots of a released product. Logic Lens's RAG feature is optional and depends on its deployment configuration. Research results follow the IEEE paper’s reported metrics; discrepancies in its prose are disclosed in the study note. The downloadable resume still needs alignment with the corrected profile.
 
 Fonts: Manrope and Instrument Serif are redistributed under the SIL Open Font License; the license texts are included in `assets/`.
 
@@ -64,7 +64,7 @@ node --test tests/contact.test.cjs
 
 ## Avatar artwork
 
-`assets/tech-avatar-trio.webp` is a 768 × 384 transparent illustration generated with the built-in ImageGen tool, then encoded for web delivery. It appears beside the AI workflow and in the contact section. The generation brief is in `assets/tech-avatar-trio.prompt.md`. The characters are decorative illustrations, not people or endorsements.
+`assets/tech-avatar-trio.webp` is a 768 × 384 transparent illustration generated with the built-in ImageGen tool, then encoded for web delivery. It appears in the contact section. The generation brief is in `assets/tech-avatar-trio.prompt.md`. The characters are decorative illustrations, not people or endorsements.
 
 ## Project exploration
 
@@ -90,3 +90,25 @@ The form's implementation caption was removed at Nagoor's request. Submission be
 ## Pointer accent
 
 A small ring follows mouse movement on devices with a fine pointer and hover. It preserves the native cursor, subtly expands over links, and hides over editable fields, during dialogs, on keyboard input, and when idle. Animation frames stop when the ring settles. Touch, reduced-motion, and forced-color modes disable the accent.
+
+## Paper-aligned profile review
+
+Branch: `fix/paper-aligned-profile-20261026`, based on `v1.1`. No production branch is changed by this review. The full six-page IEEE paper was read locally from `reference/ieee-aiiot-2024-paper.pdf`; `reference/` is ignored and the paper is not included in the commit.
+
+- TCS copy covers Jira-reported issues, Angular, primarily C#/.NET, SQL Server records and stored procedures. Role tools are C#, .NET, Angular, SQL Server, stored procedures, Jira and Git. No TCS performance metric or pipeline claim remains in page or assistant data.
+- Research uses partial dependence analysis on Random Forest and Gradient Boosting. Tables 3–4 supply the deep-model metrics; Section IV-A supplies the classical-model row.
+- The conclusion precision (0.8793474, rounded to 87.9%) does not match Table 3 macro precision (87.8%). Its averaging method and tuning stage are not inferred. Post-tuning prose also differs from Table 4 (88.41% versus 88.40% accuracy; 86.2% versus 85.7% precision). The note uses the table values. The paper also claims tuning improved accuracy despite the lower accuracies in Table 4, and calls LSTM-CNN the best AUC model although Table 3 gives BiLSTM-CNN a higher AUC; neither claim is repeated on the site. Its abstract names an additional interpretation method, while the conclusion treats further interpretation of the deep model as future work; the page describes the partial dependence analysis actually reported in Sections III-C and IV-B.
+- The public research notebook’s `train_test_split(X, y, stratify=y, test_size=0.2, random_state=42)` provides the 80/20 ratio. This is attributed to the repository; the paper does not state it. TensorFlow is also evidenced by notebook imports rather than named in the paper.
+- Primary hero links are the live demo, GitHub and resume, rendered immediately in static HTML. The full availability line appears once. Artwork is smaller, remains pausable and respects reduced motion.
+
+Open TODOs visible in the page:
+
+- Reconcile the conclusion precision with Table 3 before assigning its averaging method or tuning stage.
+- Update the downloadable resume to match the corrected experience and research details. The PDF is intentionally unchanged in this scoped site edit.
+- Add CI to Logic Lens; that repository is not available in this workspace, so no workflow or CI/CD skill claim was added.
+
+Existing tests: `node --test tests/contact.test.cjs agent/tests/agent.test.mjs`. There is no package manifest or configured build/lint command.
+
+Validation for this branch: all 17 existing mocked tests pass. Primary hero links fit above the fold at 360×640, 768×1024 and 1280×800. Protected project sections and dialogs, contact form markup/logic, project knowledge entries and `:root` design tokens are unchanged. The research table scrolls within its own container on narrow screens.
+
+The removed interpretation methods no longer appear in HTML copy, metadata, alt text or assistant knowledge. A literal case-insensitive search still matches existing `lime` color identifiers and artwork color descriptions; these were retained to preserve the design system and original artwork briefs. The downloadable resume PDF still contains the old experience and research claims and is covered by the visible resume TODO. The ignored reference paper is excluded from the published source.
