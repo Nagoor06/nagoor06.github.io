@@ -10,7 +10,7 @@ A responsive, accessible portfolio for Python, AI application engineering, and b
 - IEEE publication, research and professional experience
 - Prominent Download Resume button, working social links and copy-email action
 - Inline contact form with validation, accessible status messages, a honeypot, and timeout handling
-- Personal portrait edited to match the forest-green palette, plus decorative tech-avatar artwork
+- Single illustrated developer avatar in the hero, plus decorative tech-avatar artwork
 - Visual skill groups, visible together on desktop and manually browsable with swipe/arrow controls on narrow screens
 - Unobtrusive header that scrolls away, with a visual Explore panel in the header and footer
 - Keyboard-accessible dialogs, review tabs, and horizontally scrollable code sample
@@ -79,11 +79,11 @@ node --test tests/contact.test.cjs
 
 The `agent/` directory contains a separately staged AI assistant and role-fit interface, grounded public-profile data, a server route, and mocked transport tests. It is **not active in the main portfolio**. `agent/preview.html` labels its disabled AI controls and authored example clearly. A secure API credential and a deployed backend are still required. See `agent/README.md` for activation and integration steps.
 
-## Visual skills and portrait
+## Visual skills and avatar
 
 The former automatic skills ribbon and duplicate text toolkit are replaced by one illustrated skills section. Desktop displays all three skill groups together. Narrow screens use native horizontal scroll snapping, swipe, previous/next buttons, and Left/Right/Home/End keyboard controls. There is no automatic playback or Pause control. Skill links retain the relevant project or research destination. `personal.css` and `personal.js` own these components.
 
-`assets/nagoor-portrait.webp` is a 960 × 1200 portrait edited from Nagoor's supplied photograph using the built-in ImageGen tool. The edit preserves his identity, glasses, hair, and shirt, with a chest-up crop, lighting correction, and forest-green backdrop. The original upload is unchanged. The exact edit brief is in `assets/nagoor-portrait.prompt.md`. The WebP is encoded for delivery, with explicit dimensions and lazy loading on the larger About portrait.
+`assets/developer-avatar.webp` is a 384 × 384 transparent cartoon developer avatar created with the built-in ImageGen tool. It appears only beside the name at the top of the page. A brief CSS greeting animation finishes after 2.4 seconds and is disabled for reduced-motion preferences. The exact generation brief is in `assets/developer-avatar.prompt.md`. The photographic portrait and its references have been removed from the current published source. Earlier Git history is not rewritten.
 
 The form's implementation caption was removed at Nagoor's request. Submission behavior is unchanged. Successful inbox delivery was confirmed by Nagoor on 26 October 2026.
 

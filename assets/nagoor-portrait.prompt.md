@@ -1,7 +1,0 @@
-# Portrait edit
-
-Created with the built-in ImageGen tool from the user's attached photograph on 26 October 2026. The original is unchanged. The site uses an optimized WebP of the edited image.
-
-## Exact prompt
-
-Use case: identity-preserve. Asset type: edited photographic portrait for Nagoor's software engineering portfolio. Input image 1 is the edit target, not inspiration for a new person. Preserve this exact man's facial identity, skin tone, facial proportions, natural skin texture, beard, hair shape, eyeglasses, calm expression, and slight three-quarter gaze. Preserve his original light striped textured shirt. Edit only photographic presentation: replace the beige wall with a clean, softly textured deep forest-green studio background (#19231b to #283626), with subtle soft natural light from the left. Correct warm color cast, gently improve clarity and lighting without smoothing skin or changing facial features. Crop vertically to a polished chest-up editorial portrait, with a little headroom and both shoulders comfortably framed; exclude the phone and hands through the crop. He should remain recognizably exactly the same person, in the same pose. Understated, professional, approachable; realistic photograph, no suit, no glasses changes, no fake bokeh objects, no neon or sci-fi effects, no text, no watermark. Output a high-quality 4:5 portrait that fits a dark green and pale-lime website.
