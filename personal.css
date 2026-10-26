@@ -1,5 +1,7 @@
 /* A single illustrated avatar and the manually browsed visual toolkit. */
 .profile-lockup { display: flex; align-items: center; gap: 18px; }
+.profile-identity { min-width: 0; }
+.profile-specialty { font-size: 13px; line-height: 1.5; letter-spacing: .1px; }
 .profile-thumb { width: 80px; height: 80px; padding: 3px; object-fit: contain; border-radius: 50%; border: 1px solid #6d8454; background: radial-gradient(circle at 50% 35%, #34432b, #1a251a 75%); flex: none; transform-origin: 50% 85%; animation: avatar-hello 2.4s ease-in-out .3s 1 both; transition: border-color .2s, box-shadow .2s; }
 .profile-thumb:hover { border-color: var(--lime); box-shadow: 0 0 0 5px #d9f99d0e; }
 @keyframes avatar-hello { 0%, 100% { transform: translateY(0) rotate(0); } 22% { transform: translateY(-3px) rotate(-4deg); } 45% { transform: translateY(-2px) rotate(3deg); } 68% { transform: translateY(-3px) rotate(-2deg); } }
@@ -70,7 +72,7 @@
   .profile-lockup { gap: 12px; }
   .profile-thumb { width: 64px; height: 64px; }
   .profile-lockup .eyebrow { font-size: 10px; letter-spacing: .8px; }
-  .profile-specialty { font-size: 10px; line-height: 1.6; }
+  .profile-specialty { font-size: 12px; line-height: 1.5; }
 }
 @media (max-width: 400px) {
   .skill-card-body { padding: 20px 18px; }
