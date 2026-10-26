@@ -4,7 +4,7 @@ A responsive, accessible portfolio for Python, AI application engineering, and b
 
 ## Features
 
-- Interactive canvas AI workflow visual, with reduced-motion support
+- Procedural canvas AI visual, with reduced-motion support
 - Logic Lens code walkthrough and detailed project notes
 - CommuteCircle map concept, clearly marked as in development
 - IEEE publication, research and professional experience
@@ -93,15 +93,15 @@ A small ring follows mouse movement on devices with a fine pointer and hover. It
 
 ## Paper-aligned profile review
 
-Branch: `fix/paper-aligned-profile-20261026`, based on `v1.1`. No production branch is changed by this review. The full six-page IEEE paper was read locally from `reference/ieee-aiiot-2024-paper.pdf`; `reference/` is ignored and the paper is not included in the commit.
+The paper audit was prepared on `fix/paper-aligned-profile-20261026` and published through `v1.1`. Presentation refinements are developed on `polish/research-results-20261026`. The full six-page IEEE paper was read locally from `reference/ieee-aiiot-2024-paper.pdf`; `reference/` is ignored and the paper is not included in the commit.
 
 - TCS copy covers Jira-reported issues, Angular, primarily C#/.NET, SQL Server records and stored procedures. Role tools are C#, .NET, Angular, SQL Server, stored procedures, Jira and Git. No TCS performance metric or pipeline claim remains in page or assistant data.
 - Research uses partial dependence analysis on Random Forest and Gradient Boosting. Tables 3–4 supply the deep-model metrics; Section IV-A supplies the classical-model row.
-- The conclusion precision (0.8793474, rounded to 87.9%) does not match Table 3 macro precision (87.8%). Its averaging method and tuning stage are not inferred. Post-tuning prose also differs from Table 4 (88.41% versus 88.40% accuracy; 86.2% versus 85.7% precision). The note uses the table values. The paper also claims tuning improved accuracy despite the lower accuracies in Table 4, and calls LSTM-CNN the best AUC model although Table 3 gives BiLSTM-CNN a higher AUC; neither claim is repeated on the site. Its abstract names an additional interpretation method, while the conclusion treats further interpretation of the deep model as future work; the page describes the partial dependence analysis actually reported in Sections III-C and IV-B.
+- The conclusion precision (0.8793474, rounded to 87.9%) does not match Table 3 macro precision (87.8%). Its averaging method and tuning stage are not inferred. The results cards now use the table values; 87.9% remains contextualized in the expandable reporting note. Post-tuning prose also differs from Table 4 (88.41% versus 88.40% accuracy; 86.2% versus 85.7% precision). The note uses the table values. The paper also claims tuning improved accuracy despite the lower accuracies in Table 4, and calls LSTM-CNN the best AUC model although Table 3 gives BiLSTM-CNN a higher AUC; neither claim is repeated on the site. Its abstract names an additional interpretation method, while the conclusion treats further interpretation of the deep model as future work; the page describes the partial dependence analysis actually reported in Sections III-C and IV-B.
 - The public research notebook’s `train_test_split(X, y, stratify=y, test_size=0.2, random_state=42)` provides the 80/20 ratio. This is attributed to the repository; the paper does not state it. TensorFlow is also evidenced by notebook imports rather than named in the paper.
 - Primary hero links are the live demo, GitHub and resume, rendered immediately in static HTML. The full availability line appears once. Artwork is smaller, remains pausable and respects reduced motion.
 
-Open TODOs visible in the page:
+Maintenance backlog (not shown in the portfolio):
 
 - Reconcile the conclusion precision with Table 3 before assigning its averaging method or tuning stage.
 - Update the downloadable resume to match the corrected experience and research details. The PDF is intentionally unchanged in this scoped site edit.
@@ -111,4 +111,12 @@ Existing tests: `node --test tests/contact.test.cjs agent/tests/agent.test.mjs`.
 
 Validation for this branch: all 17 existing mocked tests pass. Primary hero links fit above the fold at 360×640, 768×1024 and 1280×800. Protected project sections and dialogs, contact form markup/logic, project knowledge entries and `:root` design tokens are unchanged. The research table scrolls within its own container on narrow screens.
 
-The removed interpretation methods no longer appear in HTML copy, metadata, alt text or assistant knowledge. A literal case-insensitive search still matches existing `lime` color identifiers and artwork color descriptions; these were retained to preserve the design system and original artwork briefs. The downloadable resume PDF still contains the old experience and research claims and is covered by the visible resume TODO. The ignored reference paper is excluded from the published source.
+The removed interpretation methods no longer appear in HTML copy, metadata, alt text or assistant knowledge. A literal case-insensitive search still matches existing `lime` color identifiers and artwork color descriptions; these were retained to preserve the design system and original artwork briefs. The downloadable resume PDF still contains the old experience and research claims and remains tracked in the maintenance backlog. The ignored reference paper is excluded from the published source.
+
+## Research results and copy refinement
+
+The portfolio no longer displays maintenance placeholders. The hero includes “Software Engineer · Python & AI” directly under the name. Hero and About copy focus on Python services, LLM applications, enterprise experience and published research. The TCS description is unchanged apart from emphasis on key phrases.
+
+Research now presents two labeled result cards: Random Forest (94.69% test accuracy, 91.9% precision, 91.35% recall, 91.62% F1) and LSTM-CNN before tuning (89.31% test accuracy, 87.8% macro precision, 87.2% macro recall, 87.4% macro F1). A study summary shows 11,598 apps, 50 of 471 features selected, and five classes. Methodology, the exact five-row results table, the classical-model analysis diagram and the source discrepancy are available in an expandable panel. No new performance claims are inferred.
+
+Validation for the presentation refinement: all 17 existing mocked tests pass. The identity line and primary hero actions fit at 360×640, 768×1024 and 1280×800. Result cards do not overflow; the expanded mobile results table scrolls within its container. No public maintenance placeholders remain. Project content, application/contact logic and design tokens are unchanged.
