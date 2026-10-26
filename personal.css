@@ -1,17 +1,18 @@
 /* A single illustrated avatar and the manually browsed visual toolkit. */
 .profile-lockup { display: flex; align-items: center; gap: 18px; }
 .profile-identity { min-width: 0; }
-.profile-specialty { font-size: 13px; line-height: 1.5; letter-spacing: .1px; }
+.profile-specialty { padding-left: 18px; font-size: 13px; line-height: 1.5; letter-spacing: .1px; }
 .profile-thumb { width: 80px; height: 80px; padding: 3px; object-fit: contain; border-radius: 50%; border: 1px solid #6d8454; background: radial-gradient(circle at 50% 35%, #34432b, #1a251a 75%); flex: none; transform-origin: 50% 85%; animation: avatar-hello 2.4s ease-in-out .3s 1 both; transition: border-color .2s, box-shadow .2s; }
 .profile-thumb:hover { border-color: var(--lime); box-shadow: 0 0 0 5px #d9f99d0e; }
 @keyframes avatar-hello { 0%, 100% { transform: translateY(0) rotate(0); } 22% { transform: translateY(-3px) rotate(-4deg); } 45% { transform: translateY(-2px) rotate(3deg); } 68% { transform: translateY(-3px) rotate(-2deg); } }
 .about-profile { margin-bottom: 64px; }
-.about-story { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: clamp(40px, 6vw, 90px); align-items: start; }
+.about-story { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 64px; align-items: start; }
 .about-story>.eyebrow { grid-column: 1 / -1; margin-bottom: 24px; }
 .about-story h2 { grid-column: 1; grid-row: 2 / span 2; font-size: clamp(36px, 4.25vw, 62px); line-height: 1.12; letter-spacing: -2px; }
 .about-story h2 em { color: var(--lime); }
 .about-story .about-intro { grid-column: 2; margin-top: 0; max-width: 56ch; }
 .about-story .about-intro p { font-size: 17px; line-height: 1.85; }
+.about-story .about-intro p:first-child { margin-top: 0; }
 .about-contact { grid-column: 2; justify-self: start; display: inline-flex; align-items: center; gap: 35px; min-height: 48px; margin-top: 24px; border-bottom: 1px solid #6d8654; color: var(--lime); font-size: 16px; font-weight: 700; }
 .about-contact:hover { color: #efffd9; border-color: #efffd9; }
 .skills-section { margin-top: 80px; padding-top: 50px; border-top: 1px solid var(--line); min-width: 0; }
@@ -44,14 +45,17 @@
 .skills-controls button:hover:not(:disabled) { color: #192b11; background: var(--lime); }
 .skills-controls button:disabled { opacity: .35; }
 #skills-page { min-width: 38px; text-align: center; font: 13px/1.5 ui-monospace, monospace; color: #c8d9b8; }
+@media (max-width: 1100px) {
+  .about-story { column-gap: 48px; }
+}
 @media (max-width: 1024px) {
-  .about-story { column-gap: 40px; }
   .about-story h2 { font-size: 44px; }
   .skill-card-body { padding: 22px 18px; }
   .skill-card h4 { font-size: 20px; }
   .skills-intro { max-width: 33ch; }
 }
 @media (max-width: 900px) {
+  .about-story { column-gap: 32px; }
   .skills-track { display: flex; gap: 16px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: #526746 #162017; padding: 3px 2px 14px; scroll-padding-inline: 2px; }
   .skill-card { flex: 0 0 calc(100% - 22px); scroll-snap-align: start; }
   .skill-chips a { min-height: 44px; }
