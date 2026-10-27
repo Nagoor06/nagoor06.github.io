@@ -1,1 +1,17 @@
+# Local research material; never publish the reference paper.
 reference/
+
+# Local secrets; keep shareable example configuration.
+.env
+.env.*
+!.env.example
+
+# Local dependencies and caches.
+node_modules/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Operating-system metadata.
+.DS_Store
+Thumbs.db

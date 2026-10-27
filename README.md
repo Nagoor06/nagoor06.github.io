@@ -1,122 +1,85 @@
 # Nagoor Veeraboina — Portfolio
 
-A responsive, accessible portfolio for Python, AI application engineering, and backend roles. Built with HTML, CSS, and JavaScript; no framework build or secret keys are needed.
+A personal portfolio focused on Python, AI applications, and applied machine learning. Built with HTML, CSS, and vanilla JavaScript, and published on GitHub Pages.
 
-## Features
+**[Visit the portfolio](https://nagoor06.github.io/)** · **[Logic Lens live demo](https://logic-lens-five.vercel.app/)** · **[LinkedIn](https://www.linkedin.com/in/nagoor-veeraboina-4b5b82224/)**
 
-- Procedural canvas AI visual, with reduced-motion support
-- Logic Lens code walkthrough and detailed project notes
-- CommuteCircle map concept, clearly marked as in development
-- IEEE publication, research and professional experience
-- Prominent Download Resume button, working social links and copy-email action
-- Inline contact form with validation, accessible status messages, a honeypot, and timeout handling
-- Single illustrated developer avatar in the hero, plus decorative tech-avatar artwork
-- Visual skill groups, visible together on desktop and manually browsable with swipe/arrow controls on narrow screens
-- Unobtrusive header that scrolls away, with a visual Explore panel in the header and footer
-- Keyboard-accessible dialogs, review tabs, and horizontally scrollable code sample
-- Consistent body text, clear hover/focus states, and layouts for narrow screens
-- Pausable artwork; rendering stops off screen, in hidden tabs, and for reduced motion
-- Self-hosted fonts, social icons, and artwork; the email service is contacted only on submission
+## What’s inside
 
-## Local preview
+- **Projects:** Logic Lens with a guided code-review example, and CommuteCircle with development notes and concept illustrations.
+- **Research:** Android malware detection, the IEEE AIIoT 2024 publication, and an expandable methodology and results section.
+- **Experience and skills:** Professional background, education, and illustrated skill groups with swipe and arrow navigation on small screens.
+- **Contact:** An inline inquiry form, direct email links, and a downloadable resume.
+- **Interaction:** Keyboard-accessible project dialogs, shareable project links, pausable canvas artwork, and reduced-motion support.
 
-Serve this directory with any static HTTP server. For example, `python3 -m http.server 8000`, then open `http://localhost:8000`.
+The main site needs no build step, package installation, or API credentials. Fonts, icons, and artwork are served from this repository.
 
-## GitHub Pages
+## Run locally
 
-This is intended for the public `Nagoor06/nagoor06.github.io` repository. In **Settings → Pages**, choose **Deploy from a branch**, **v1.1**, and **/(root)**. The `.nojekyll` file preserves the buildless static site.
-
-## Editing
-
-- `index.html`: copy, links, project notes, and metadata
-- `styles.css`: design, layout, responsiveness, and motion
-- `app.js`: navigation, accessibility, and canvas artwork
-- `contact.js`: contact-form request and response handling
-- `tests/contact.test.cjs`: message transport regression tests
-- `assets/`: fonts, social preview, favicon, and resume
-
-CommuteCircle is presented as work in progress. Its map and phone are portfolio concept illustrations, not screenshots of a released product. Logic Lens's RAG feature is optional and depends on its deployment configuration. Research results follow the IEEE paper’s reported metrics; discrepancies in its prose are disclosed in the study note. The downloadable resume still needs alignment with the corrected profile.
-
-Fonts: Manrope and Instrument Serif are redistributed under the SIL Open Font License; the license texts are included in `assets/`.
-
-© Nagoor Veeraboina. Portfolio content and visual design.
-
-
-## v1.1 maintenance
-
-The stylesheet is organized as base component rules followed by four responsive breakpoints. Avoid appending competing typography overrides: edit the component or the relevant breakpoint directly. The navigation and email-link behavior use a 760px breakpoint.
-
-GitHub Pages publishes the repository root of `v1.1`. No build command, Node dependencies, environment variables, or backend are required. The contact form uses FormSubmit to forward inquiries; the direct-email links open a compose window.
-
-The GitHub and LinkedIn icons are from Bootstrap Icons (MIT), and the LeetCode icon is from Simple Icons (CC0). See `assets/icons-LICENSE.txt`.
-
-## Contact-form activation and verification
-
-The recipient is `veeraboinanagoor@gmail.com`. FormSubmit requires recipient confirmation on first use. If this address/site has not already been activated, submit a test message from the published site, open FormSubmit's confirmation email (check Spam), and activate it. Submit another test after confirmation to check receipt. Nagoor confirmed successful inbox delivery on 26 October 2026. The form retains activation and error handling for future service changes.
-
-The form stays on the portfolio when JavaScript is enabled. It treats activation responses separately from confirmed submission, preserves the draft after errors or activation requests, prevents duplicate clicks while sending, and times out after 20 seconds. No API key is embedded. A direct email link remains available. Without JavaScript, the native POST uses FormSubmit's confirmation page. Provider-side CAPTCHA behavior is left at its default.
-
-Local transport tests use mocked responses and never send emails:
+Clone the publishing branch and start a static server:
 
 ```sh
-node --test tests/contact.test.cjs
+git clone --branch v1.1 https://github.com/Nagoor06/nagoor06.github.io.git
+cd nagoor06.github.io
+python3 -m http.server 8000
 ```
 
-## Avatar artwork
+Open [localhost:8000](http://localhost:8000). Any static HTTP server can be used instead.
 
-`assets/tech-avatar-trio.webp` is a 768 × 384 transparent illustration generated with the built-in ImageGen tool, then encoded for web delivery. It appears in the contact section. The generation brief is in `assets/tech-avatar-trio.prompt.md`. The characters are decorative illustrations, not people or endorsements.
+## Repository guide
 
-## Project exploration
+| File or directory | Purpose |
+| --- | --- |
+| `index.html` | Page content, project dialogs, links, and metadata |
+| `styles.css` | Base design, layout, responsive rules, and motion |
+| `app.js` | Core navigation, accessibility, and canvas artwork |
+| `enhancements.css` / `enhancements.js` | Explore panel, project walkthrough, shareable dialogs, and pointer accent |
+| `personal.css` / `personal.js` | Profile avatar and visual skills navigation |
+| `contact.js` | Form submission, validation feedback, and error handling |
+| `assets/` | Resume, illustrations, fonts, social images, icons, and license notices |
+| `tests/` | Contact transport tests |
+| `agent/` | Separate assistant prototype, server source, and tests |
+| `robots.txt` / `sitemap.xml` | Search-engine discovery |
 
-- `enhancements.css` and `enhancements.js` contain the cursor accent, visual Explore panel, shareable project dialogs, and guided Logic Lens sample.
-- Project URLs: `/#logic-lens`, `/#commutecircle`, and `/#logic-lens-demo`. Direct links, browser Back/Forward, keyboard navigation, Escape, and project-link copying are supported.
-- The 24-second walkthrough is authored illustrative content, not a recording or a live LLM response. It makes no AI request. The standard, duplicate-value, and no-match examples run a local JavaScript equivalent of the displayed Python algorithm.
-- Playback starts only on request, pauses when the tab is hidden or the dialog closes, and is disabled under reduced motion. Manual steps remain available.
-- The live Logic Lens app requires authentication for actual reviews. Its optional RAG configuration remains accurately described as deployment-dependent.
-- Navigation stays in the document flow, with no floating centre menu. Canvas artwork pauses behind dialogs.
+## Checks
 
-## Assistant activation preview
+Run the existing tests with a Node.js version that supports the built-in test runner:
 
-The `agent/` directory contains a separately staged AI assistant and role-fit interface, grounded public-profile data, a server route, and mocked transport tests. It is **not active in the main portfolio**. `agent/preview.html` labels its disabled AI controls and authored example clearly. A secure API credential and a deployed backend are still required. See `agent/README.md` for activation and integration steps.
+```sh
+node --test tests/contact.test.cjs agent/tests/agent.test.mjs
+```
 
-## Visual skills and avatar
+The tests mock email and model requests; they do not send messages or call a live AI service. There is no configured build or lint command.
 
-The former automatic skills ribbon and duplicate text toolkit are replaced by one illustrated skills section. Desktop displays all three skill groups together. Narrow screens use native horizontal scroll snapping, swipe, previous/next buttons, and Left/Right/Home/End keyboard controls. There is no automatic playback or Pause control. Skill links retain the relevant project or research destination. `personal.css` and `personal.js` own these components.
+For visual changes, check desktop and mobile layouts, keyboard navigation, reduced motion, project dialogs, and form status messages. Keep the hero’s demo, GitHub, and resume links visible without waiting for animation.
 
-`assets/developer-avatar.webp` is a 384 × 384 transparent cartoon developer avatar created with the built-in ImageGen tool. It appears only beside the name at the top of the page. A brief CSS greeting animation finishes after 2.4 seconds and is disabled for reduced-motion preferences. The exact generation brief is in `assets/developer-avatar.prompt.md`. The photographic portrait and its references have been removed from the current published source. Earlier Git history is not rewritten.
+## Publishing and branches
 
-The form's implementation caption was removed at Nagoor's request. Submission behavior is unchanged. Successful inbox delivery was confirmed by Nagoor on 26 October 2026.
+GitHub Pages publishes **`v1.1` → repository root (`/`)**. The `.nojekyll` file keeps the site buildless. The default branch, `main`, is retained separately and is not the current publishing source.
 
-## Pointer accent
+1. Create a short-lived branch from `v1.1`.
+2. Make and verify the change, then open a pull request targeting `v1.1`.
+3. After merging, check the [Pages deployment](https://github.com/Nagoor06/nagoor06.github.io/actions).
+4. Delete the merged work branch after confirming it has no unique commits.
 
-A small ring follows mouse movement on devices with a fine pointer and hover. It preserves the native cursor, subtly expands over links, and hides over editable fields, during dialogs, on keyboard input, and when idle. Animation frames stop when the ring settles. Touch, reduced-motion, and forced-color modes disable the accent.
+## Contact form
 
-## Paper-aligned profile review
+The form forwards inquiries through FormSubmit to `veeraboinanagoor@gmail.com`. Inbox delivery has been confirmed. JavaScript submissions stay on the page, retain the draft on errors, and show an accessible status message; native form submission remains available without JavaScript.
 
-The paper audit was prepared on `fix/paper-aligned-profile-20261026` and published through `v1.1`. Presentation refinements are developed on `polish/research-results-20261026`. The full six-page IEEE paper was read locally from `reference/ieee-aiiot-2024-paper.pdf`; `reference/` is ignored and the paper is not included in the commit.
+If the recipient changes, update it in both `index.html` and `contact.js`, complete FormSubmit’s recipient confirmation, and verify inbox delivery. Local tests use mocked responses and cannot verify email receipt.
 
-- TCS copy covers Jira-reported issues, Angular, primarily C#/.NET, SQL Server records and stored procedures. Role tools are C#, .NET, Angular, SQL Server, stored procedures, Jira and Git. No TCS performance metric or pipeline claim remains in page or assistant data.
-- Research uses partial dependence analysis on Random Forest and Gradient Boosting. Tables 3–4 supply the deep-model metrics; Section IV-A supplies the classical-model row.
-- The conclusion precision (0.8793474, rounded to 87.9%) does not match Table 3 macro precision (87.8%). Its averaging method and tuning stage are not inferred. The results cards now use the table values; 87.9% remains contextualized in the expandable reporting note. Post-tuning prose also differs from Table 4 (88.41% versus 88.40% accuracy; 86.2% versus 85.7% precision). The note uses the table values. The paper also claims tuning improved accuracy despite the lower accuracies in Table 4, and calls LSTM-CNN the best AUC model although Table 3 gives BiLSTM-CNN a higher AUC; neither claim is repeated on the site. Its abstract names an additional interpretation method, while the conclusion treats further interpretation of the deep model as future work; the page describes the partial dependence analysis actually reported in Sections III-C and IV-B.
-- The public research notebook’s `train_test_split(X, y, stratify=y, test_size=0.2, random_state=42)` provides the 80/20 ratio. This is attributed to the repository; the paper does not state it. TensorFlow is also evidenced by notebook imports rather than named in the paper.
-- Primary hero links are the live demo, GitHub and resume, rendered immediately in static HTML. The full availability line appears once. Artwork is smaller, remains pausable and respects reduced motion.
+## Assistant prototype
 
-Maintenance backlog (not shown in the portfolio):
+The files in `agent/` are **not loaded by the main portfolio**. They contain an assistant and role-fit preview, public-profile knowledge, and a server implementation. Live AI requires a separately deployed backend and server-side credentials; GitHub Pages does not run that backend.
 
-- Reconcile the conclusion precision with Table 3 before assigning its averaging method or tuning stage.
-- Update the downloadable resume to match the corrected experience and research details. The PDF is intentionally unchanged in this scoped site edit.
-- Add CI to Logic Lens; that repository is not available in this workspace, so no workflow or CI/CD skill claim was added.
+See [the assistant guide](agent/README.md) for activation and integration details. Keep real environment files and credentials out of Git; the example configuration is safe to track.
 
-Existing tests: `node --test tests/contact.test.cjs agent/tests/agent.test.mjs`. There is no package manifest or configured build/lint command.
+## Content and assets
 
-Validation for this branch: all 17 existing mocked tests pass. Primary hero links fit above the fold at 360×640, 768×1024 and 1280×800. Protected project sections and dialogs, contact form markup/logic, project knowledge entries and `:root` design tokens are unchanged. The research table scrolls within its own container on narrow screens.
+- CommuteCircle’s matching feature remains in development; its map and phone are concept illustrations.
+- Logic Lens’s optional RAG feature depends on the app’s deployment configuration. The portfolio walkthrough is an authored example, not a live model response.
+- Research values follow the reported paper tables. The on-page study note explains conflicting prose and attributes notebook-specific details to the [research repository](https://github.com/Nagoor06/Android_Malware_Detection). The [IEEE paper](https://ieeexplore.ieee.org/document/10574689/) is linked, not redistributed; `reference/` stays ignored.
+- Avatar generation briefs remain alongside the artwork for provenance.
+- Manrope and Instrument Serif use the SIL Open Font License. Bootstrap and Simple Icons notices are included in [assets/icons-LICENSE.txt](assets/icons-LICENSE.txt).
 
-The removed interpretation methods no longer appear in HTML copy, metadata, alt text or assistant knowledge. A literal case-insensitive search still matches existing `lime` color identifiers and artwork color descriptions; these were retained to preserve the design system and original artwork briefs. The downloadable resume PDF still contains the old experience and research claims and remains tracked in the maintenance backlog. The ignored reference paper is excluded from the published source.
-
-## Research results and copy refinement
-
-The portfolio no longer displays maintenance placeholders. The hero includes “Software Engineer · Python & AI” directly under the name. Hero and About copy focus on Python services, LLM applications, enterprise experience and published research. The TCS description is unchanged apart from emphasis on key phrases.
-
-Research now presents two labeled result cards: Random Forest (94.69% test accuracy, 91.9% precision, 91.35% recall, 91.62% F1) and LSTM-CNN before tuning (89.31% test accuracy, 87.8% macro precision, 87.2% macro recall, 87.4% macro F1). A study summary shows 11,598 apps, 50 of 471 features selected, and five classes. Methodology, the exact five-row results table, the classical-model analysis diagram and the source discrepancy are available in an expandable panel. No new performance claims are inferred.
-
-Validation for the presentation refinement: all 17 existing mocked tests pass. The identity line and primary hero actions fit at 360×640, 768×1024 and 1280×800. Result cards do not overflow; the expanded mobile results table scrolls within its container. No public maintenance placeholders remain. Project content, application/contact logic and design tokens are unchanged.
+© Nagoor Veeraboina. Portfolio content and visual design. Third-party assets retain their respective licenses.
