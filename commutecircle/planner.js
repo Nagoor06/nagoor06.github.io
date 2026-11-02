@@ -1,4 +1,4 @@
-import {setupLocations} from './locations.js';
+import {setupLocations} from './locations.js?v=2';
 import {change,available} from './model.mjs';
 import {vehicleCard} from './vehicle.js';
 import {setupLive} from './session.js';
