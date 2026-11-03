@@ -1,4 +1,4 @@
 {
-  "apiOrigin": null,
+  "apiOrigin": "https://commutecircle-staging-api.onrender.com",
   "placeSearchUrl": "https://photon.komoot.io/api/"
 }
